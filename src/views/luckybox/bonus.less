@@ -1,0 +1,483 @@
+@keyframes ani {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: right 0;
+  }
+}
+
+.page-bonus {
+  min-height: 100vh;
+  width: 100%;
+  background: url(~@/assets/img/newYear/bonus_bg0317_01.png) no-repeat top left;
+  background-size: 100%;
+  font-size: 0.32rem;
+  .top-info {
+    padding-top: 220px;
+    position: relative;
+    .title {
+      width: 100%;
+      text-align: center;
+      color: #8b4c00;
+      p {
+        margin: 0 20px;
+      }
+      p:first-child {
+        font-size: 23px;
+        font-weight: 900;
+      }
+      p:last-child {
+        margin-top: 5px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+    }
+    .avatar {
+      position: absolute;
+      left: 0.5rem;
+      top: 0.3rem;
+      display: inline-block;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      height: 30px;
+      line-height: 30px;
+      background-color: rgb(233, 207, 138);
+      border: 1px solid rgb(233, 207, 138);
+      border-radius: 16px;
+      img {
+        display: inline-block;
+        height: 30px;
+        width: 30px;
+        border-radius: 16px;
+        margin-right: 16px;
+      }
+      .coin {
+        color: #8b4c00;
+        font-size: 14px;
+        &::after {
+          content: "";
+          display: inline-block;
+          height: 30px;
+          width: 30px;
+          float: right;
+          margin-left: 6px;
+          background: url(../../assets/img/worldCup/icon.png) no-repeat left 45%;
+          background-size: 60%;
+        }
+      }
+    }
+    .rules-btn {
+      position: absolute;
+      right: -2px;
+      top: 0.3rem;
+      height: 30px;
+      line-height: 30px;
+      color: #8b4c00;
+      padding: 0 15px;
+      font-size: 0.4rem;
+      text-align: center;
+      background: url(~@/assets/img/newYear/rule-btn-bg.png) no-repeat top right;
+      background-size: 100%;
+    }
+  }
+  .bonus-end {
+    margin-top: 100px;
+    text-align: center;
+    font-size: 40px;
+    color: #fff;
+  }
+  .bonus-list {
+    background: red;
+    background: url(~@/assets/img/newYear/bonus_bg0317_02.png) repeat-y top left;
+    background-size: 100%;
+    &::after {
+      content: "";
+      display: block;
+      height: 80px;
+      margin-top: 20px;
+      background: url(~@/assets/img/newYear/bonus_bg0317_03.png) no-repeat top
+        left;
+      background-size: 100%;
+    }
+  }
+  .countdown {
+    ul {
+      display: flex;
+      margin: 0.6rem 0.6rem;
+      justify-content: space-around;
+      color: #ecc98d;
+      li {
+        display: flex;
+        width: 60px;
+        height: 82px;
+        background: url(~@/assets/img/newYear/time-bg12.png) no-repeat top;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        flex-direction: column;
+        position: relative;
+        &::before {
+          content: "";
+          position: absolute;
+          top: 25px;
+          left: 65px;
+          display: inline-block;
+          height: 9px;
+          width: 9px;
+          border-radius: 3px;
+          background: #fff49d;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          top: 43px;
+          left: 65px;
+          display: inline-block;
+          height: 9px;
+          width: 9px;
+          border-radius: 3px;
+          background: #fff49d;
+        }
+        &:last-child {
+          &::before,
+          &::after {
+            content: none;
+          }
+        }
+        p {
+          color: #fff49d !important;
+          font-weight: bold;
+          &:first-child {
+            display: inline-block;
+            box-sizing: border-box;
+            font-size: 32px;
+            height: 54px;
+            line-height: 1.5rem;
+            font-weight: normal;
+            text-align: center;
+            font-style: normal;
+          }
+          &:last-child {
+            text-align: center;
+            height: 23px;
+            line-height: 23px;
+            font-size: 14px;
+            font-weight: normal;
+            color: #fff49d !important;
+          }
+        }
+      }
+    }
+  }
+  &.horizontal-flip1 {
+    .countdown {
+      transform: scaleX(-1);
+      li {
+        p {
+          transform: scaleX(-1);
+        }
+      }
+    }
+    .rule-box {
+      text-align: right;
+    }
+    .bonus-item {
+      transform: scaleX(-1);
+      .title {
+        > div {
+          transform: scaleX(-1);
+          &:last-child {
+            justify-content: flex-start;
+          }
+        }
+      }
+      .bonus {
+        flex-direction: row-reverse;
+        &::after {
+          margin-right: 0.1rem;
+        }
+      }
+      .bottom {
+        .bonus {
+          transform: scaleX(-1);
+        }
+        .get-bonus-btn {
+          transform: scaleX(-1);
+        }
+      }
+    }
+    .gift-box {
+      .btn {
+        span {
+          margin: 0 auto;
+          display: flex;
+          flex-direction: row-reverse;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
+
+.bonus-toast {
+  background: #fff;
+  color: #333;
+}
+.mint-popup {
+  background: none;
+}
+.rules {
+  width: 8.6rem;
+  height: 60vh;
+  color: #872e00;
+  padding: 0.3rem;
+  background: url(~@/assets/img/newYear/rule-bg1.png) no-repeat top left;
+  background-size: 100% 100%;
+  border-radius: 15px;
+  .rule-title {
+    text-align: center;
+    position: relative;
+    font-size: 18px;
+    line-height: 40px;
+    span {
+      display: inline-block;
+      position: absolute;
+      right: 0.3rem;
+    }
+    .closeRule {
+      img {
+        display: inline-block;
+        margin-top: 4px;
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+  .rule-box {
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin-top: 0.2rem;
+    font-size: 15px;
+    height: 56vh;
+  }
+  dl {
+    padding: 0.3rem;
+    line-height: 30px;
+  }
+}
+
+.blur-bg + .v-modal {
+  opacity: inherit;
+  background: #0000;
+  backdrop-filter: blur(5px);
+}
+
+.bonus-item {
+  height: 114px;
+  margin: 0 24px 7px;
+  padding: 0 10px 12px 14px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(180deg, #fffcf7 0%, #ffebc9 100%);
+  border-radius: 12px;
+  border: 1px solid #be6800;
+  .bonus {
+    // text-align: right;
+    font-size: 14px;
+    font-weight: bold;
+    color: #be6800;
+    display: flex;
+    align-items: center;
+    &::after {
+      content: "";
+      display: inline-block;
+      height: 16px;
+      line-height: 19px;
+      width: 16px;
+      margin-left: 0.1rem;
+      background: url(../../assets/img/worldCup/icon.png) no-repeat left center;
+      background-size: 100%;
+    }
+    i:first-child {
+      color: #02745d;
+      font-style: normal;
+    }
+
+    i:nth-child(2) {
+      padding: 0 4px;
+    }
+  }
+  .lottery {
+    display: inline-block;
+    > span {
+      position: relative;
+      height: 30px;
+      width: 42px;
+      top: 10px;
+      display: inline-block;
+      margin-left: 4px;
+      margin-right: 4px;
+      z-index: 2;
+      img {
+        display: inline-block;
+        width: 100%;
+      }
+      i {
+        display: inline-block;
+        position: absolute;
+        right: -8px;
+        top: 4px;
+        font-size: 12px;
+      }
+      &::before {
+        content: "+";
+        position: absolute;
+        left: -2px;
+        top: 0px;
+        height: 100%;
+        width: 4px;
+        text-align: center;
+        display: inline-block;
+      }
+    }
+    &.show-plus {
+      > span {
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+  .title {
+    color: #be6800;
+    display: flex;
+    height: 46px;
+    line-height: 46px;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 15px;
+    > div:last-child {
+      width: 100px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
+  .progress {
+    height: 18px;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      font-size: 14px;
+      border-radius: 4px;
+      background: rgba(229, 168, 75, 0.4);
+    }
+    > div {
+      position: absolute;
+      top: 8px;
+      left: 1px;
+      height: 4px;
+      background: linear-gradient(270deg, #02745d 0%, #00caa3 100%);
+      border-radius: 4px;
+    }
+  }
+  .bottom {
+    height: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    position: relative;
+    z-index: 2;
+    .get-bonus-btn {
+      display: inline-block;
+      width: 136px;
+      height: 36px;
+      line-height: 36px;
+      background: url(~@/assets/img/newYear/btn2.png) no-repeat top left;
+      background-size: 100% 100%;
+      text-align: center;
+      font-weight: bold;
+      color: #fff49d;
+    }
+    .disable {
+      pointer-events: none;
+      width: 136px;
+      height: 36px;
+      line-height: 36px;
+      background: url(~@/assets/img/newYear/btn2.png) no-repeat top left;
+      background-size: 100% 100%;
+      color: #fff49d;
+      opacity: 0.4;
+      box-shadow: none;
+    }
+  }
+}
+
+.bottom-btn {
+  position: fixed;
+  bottom: 1rem;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 1000;
+  span {
+    display: inline-block;
+    width: 274px;
+    height: 45px;
+    line-height: 45px;
+    background: url(~@/assets/img/newYear/btn1.png) no-repeat top left;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    font-size: 17px;
+    color: #fff49d;
+    font-weight: bold;
+  }
+}
+
+[lang="ar"],
+[lang="he"],
+[lang="ur"] {
+  direction: rtl;
+  .page-bonus {
+    .bonus-item {
+      &::before {
+        transform: scaleX(-1) !important;
+      }
+    }
+    .title {
+      > div {
+        &:last-child {
+          justify-content: flex-start;
+          flex-direction: row-reverse;
+        }
+      }
+    }
+  }
+
+  .gift-box .info {
+    span {
+      display: inline-block;
+    }
+  }
+}
+[lang="es"] {
+  .bonus-item {
+    .get-bonus-btn {
+      width: 160px;
+      font-size: 12px;
+    }
+  }
+  .rules {
+    .rule-title {
+      font-size: 15px;
+    }
+  }
+}

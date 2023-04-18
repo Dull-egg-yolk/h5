@@ -1,0 +1,1615 @@
+@import "./common.less";
+
+@keyframes cycing{
+    0%{ 
+        transform: rotate(0deg) scale(1)
+    }
+    25% {
+        transform: rotate(90deg) scale(0.9)
+    }
+    50% {
+        transform: rotate(180deg) scale(1)
+    }
+    75% {
+         transform: rotate(270deg) scale(0.9)
+    }
+    100%{
+        transform: rotate(360deg) scale(1)
+    }
+}
+
+
+@keyframes openGitLoading{
+    0%{transform: scale(0.8)}
+    100%{transform: scale(1)}
+}
+
+@keyframes left2right{
+    0%{
+        background-position: 0 center;
+    }
+    100%{
+        background-position: right center;
+    }
+}
+
+@keyframes gitInfoAnim{
+    0%{
+        opacity: 0;
+        transform: scale(0.4)
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1)
+    }
+}
+
+@keyframes inLoadingAnim{
+    0%{
+       width: 0%;
+    }
+    100%{
+        width: 100%;
+    }
+}
+
+@keyframes ani {
+    0%{
+        background-position: 0 0;
+    }
+    100%{
+        background-position: right 0;
+    }
+    
+}
+
+@keyframes aniFreeGift {
+    0%{
+        transform: scale(0);
+        top: -180px;
+    }
+    80% {
+        transform: scale(1.2);
+        top: 0;
+    }
+    100%{
+        transform: scale(1) translateY(0px);
+        top: 0;
+    }
+}
+
+@keyframes aniShow {
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+    
+}
+
+@keyframes aniSun {
+    0%{
+        transform: scale(0) rotate(0deg);
+
+    }
+    80% {
+        transform: scale(1.2) rotate(310deg);
+    }
+    100%{
+        transform: scale(1) rotate(320deg);
+    }
+}
+.count-down(){
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    li {
+        display: flex;
+        width: 25px;
+        height: 35px;
+        background-image: url("@{imgDomian}/@{cuntdownBgImg}");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        flex-direction: column;
+        p{
+            color: #fff !important;
+            font-weight: bold;
+            &:first-child {
+                display: inline-block;
+                flex: 4;
+                box-sizing: border-box;
+                text-align: center;
+                font-size: 14px;
+                height: 21px;
+                padding-top: 4px;
+                box-sizing: border-box;
+            }
+            &:last-child {
+                height: 15px;
+                font-size: 12px;
+                transform: scale(0.7);
+            }
+        }
+    }
+}
+.center() {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+}
+
+.gift-mixin() {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding: 0 8px 0px 14px;
+    li {
+        display: inline-block;
+        height: 58px;
+        width: 58px;
+        line-height: 58px;
+        text-align: center;
+        color: #fff;
+        position: relative;
+        &.special {
+            // &::before {
+            //     content: '';
+            //     position: absolute;
+            //     top: -7px;
+            //     left:0px;
+            //     width: 100%;
+            //     height: 16px;
+            //     background:url("@{imgDomian}/gift/yun.png") no-repeat top left;
+            //     background-size: 100%;
+            // }
+        }
+        img {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+        }
+        .circle {
+            position: absolute;
+            top:0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 2;
+        }
+        .cover{
+            position: absolute;
+            top:0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 2;
+        }
+    }
+}
+.coins() {
+   
+}
+.inLoading {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#3d1d6e, #1c1b1d);
+    z-index: 100;
+    font-size: 12px;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .progress {
+        width: 180px;
+        height: 12px;
+        background: #170c26;
+        border-radius: 6px;
+        position: relative;
+        span {
+            display: inline-block;
+            height: 100%;
+            width: 100%;
+            border-radius: 6px;
+            background: linear-gradient(to right, #dbb73e, #73bd3b);
+            animation: inLoadingAnim 600ms linear alternate 1;
+        }
+        i {
+            display: inline-block;
+            position: absolute;
+            top: -24px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            font-size: 14px;
+        }
+    }
+}
+.page-word-cup{
+    width: 100%;
+    min-height: 98vh;
+    overflow-x: hidden;
+    padding-bottom: 100px;
+    .bgImg(@mainBgColor, "@{imgDomian}/@{mainBgImg}");
+    background-attachment: scroll;
+    font-size: 0.32rem;
+    .winner-wrapper {
+        .bgImg(@mainBgColor, "@{imgDomian}/@{mainBgImg}");
+    }
+    &.hidden {
+        overflow: hidden;
+        height: 100vh;
+        min-height: auto;
+        &::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+    }
+    .info {
+        text-align: center;
+        color: #fff;
+        padding:0 0.3rem;
+        p:first-child {
+            font-weight: bold;
+            font-size: 0.4rem;
+            padding-bottom: 0.1rem;
+        }
+    }
+    .free-wrap {
+        padding-top: 18px;
+        color: #fff;
+        >.free-box {
+            position: relative;
+            height: 270px;
+            margin-top: 60px;
+            &::before {
+                content: '';
+                height: 100px;
+                width: 100%;
+                position: absolute;
+                left:0;
+                top:0;
+                background: url("@{titleInfoImg}") no-repeat top center;
+                background-size: auto 100%;
+                z-index: 2
+            }
+            @keyframes boxAni {
+                0% {
+                   transform: scale(1) translateY(0px);
+                }
+                25% {
+                  transform: scale(1.2) translateY(10px);
+                }
+                50% {
+                  transform: scale(1) translateY(0px);
+                }
+                75% {
+                  transform: scale(1.2) translateY(10px);
+                }
+                100% {
+                  transform: scale(1) translateY(0px);
+                }
+            }
+            @keyframes moveTips {
+                0% {
+                    transform: translate3d(0,0,0);
+                }
+                100% {
+                    transform: translate3d(0, -260PX,0);
+                }
+            }
+            >.free-tips{
+                position: absolute;
+                top: 90px;
+                height: 30px;
+                width: 100%;
+                color: #fff;
+                // text-align: center;
+                z-index: 3;
+                background: url(../../../assets/img/2022_christmas/img/tips-info.png) no-repeat top center;
+                background-size: 100%;
+                overflow: hidden;
+                box-sizing: border-box;
+                .swiper-slide {
+                    height: 30px;
+                }
+                >div {
+                    .item {
+                        width: 100%;
+                        height: 100%;
+                        .gold-info {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            height: 28px;
+                            img {
+                                display: inline-block;
+                                width: 20px;
+                                height: 20px;
+                                border-radius: 10px;
+                                object-fit: cover;
+                                margin-right: 4px;
+                            }
+                            
+                            span {
+                                display: inline-block;
+                                margin: 0px 4px ;
+                            }
+                        }
+                    }
+                    
+                }
+            }
+            >.gift-pkg-box{
+                position: absolute;
+                top: -60px;
+                left: 50%;
+                width: 160px;
+                height: 160px;
+                overflow: hidden;
+                text-align: center;
+                transform: translate3d(-50%, 0,0);
+                z-index: 1;
+                > img {
+                    display: inline-block;
+                    width: 140px;
+                    height: 120px;
+                    &.show {
+                        animation: boxAni 0.4s 2s 2 both;
+                    }
+                }
+            }
+            >.top {
+                position: absolute;
+                height: 43px;
+                width: 100%;
+                top:166px;
+                >.info {
+                    position: absolute;
+                    left: 20px;
+                    top: 18px;
+                    line-height: 20px;
+                    overflow: hidden;
+                    box-sizing: border-box;
+                    padding-top: 2px;
+                    width: 90px;
+                    height: 40px;
+                    line-height: 16px;
+                    font-size: 12px;
+                }
+                .count-down {
+                    width: 116px;
+                    position: absolute;
+                    left: 50%;
+                    top: 6px;
+                    transform: translate3d(-50%, 0, 0);
+                    .count-down();
+                }
+                .collected-sets {
+                    position: absolute;
+                    right: 24px;
+                    top: 10px;
+                    span {
+                        font-size: 30px;
+                        font-weight: bold;
+                        color:#01FF2A;
+                    }
+                }
+                >.act-end-info{
+                    .center();
+                    top: 10px;
+                    font-size: 14px;
+                    color: #fff;
+                    transform: translate3d(-50%, 0, 0);
+                }
+            }
+            .ani-gift {
+                width: 100%;
+                @keyframes sunBgAni {
+                    0% {
+                        box-shadow: none;
+                    }
+                    12.5% {
+                        box-shadow: 0px 0px 10px 10px #FFBE43;
+                    }
+                    25% {
+                        box-shadow: 0px 0px 5px 5px #FFBE43;
+                    }
+                    37.5% {
+                        box-shadow: 0px 0px 10px 10px #FFBE43;
+                    }
+                    50% {
+                        box-shadow: 0px 0px 5px 5px #FFBE43;
+                    }
+                    62.5% {
+                        box-shadow: 0px 0px 10px 10px #FFBE43;
+                    }
+                    75% {
+                        box-shadow: 0px 0px 5px 5px #FFBE43;
+                    }
+                    87.5%{
+                        box-shadow: 0px 0px 10px 10px #FFBE43;
+                    }
+                    100% {
+                        box-shadow: 0px 0px 5px 5px #FFBE43;
+                    }
+                }
+                .sun-bg{
+                    position: absolute;
+                    top: 219px;
+                    left: 13px;
+                    right: 9px;
+                    height: 58px;
+                    z-index: 0;
+                    width: auto;
+                    animation: sunBgAni 2s 0s 1;
+                }
+                >.gift{
+                    @keyframes moveGift {
+                        0% {
+                            transform: scale(1);
+                            opacity: 1;
+                        }
+                        100% {
+                            top: -30px;
+                            left: 50%;
+                            margin-left: -25px;
+                            transform: scale(0);
+                            opacity: 0;
+                        }
+                    }
+                    >.type {
+                        position: absolute;
+                        left: 14px;
+                        top:220px;
+                        > img {
+                            display: inline-block;
+                            width: 58px;
+                            height:58px;
+                        }
+                        &:nth-child(1) {
+                            left: 14px;
+                            animation: moveGift 0.3s 2s both;
+                        }
+                        &:nth-child(2) {
+                            left: 74px;
+                            animation: moveGift 0.3s 2.1s both;
+                        }
+                        &:nth-child(3) {
+                            left: 134px;
+                            animation: moveGift 0.3s 2.2s both;
+                        }
+                        &:nth-child(4) {
+                            left: 194px;
+                            animation: moveGift 0.3s 2.3s both;
+                        }
+                        &:nth-child(5) {
+                            left: 254px;
+                            animation: moveGift 0.3s 2.4s both;
+                        }
+                        &:nth-child(6) {
+                            left: 314px;
+                            animation: moveGift 0.3s 2.5s both;
+                        }
+                    }
+                }
+            }
+            @keyframes showAni {
+                0% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+            >.gift-wrap {
+                height: 50px;
+                width: 100%;
+                position: absolute;
+                top: 220px;
+                opacity: 1;
+                &.show {
+                    animation: showAni 0.3s 3s both;
+                }
+                .gift {
+                    .gift-mixin();
+                }
+            }
+        }
+        
+        >.bottom {
+            text-align: center;
+            margin-top: 0.8rem;
+            color: #fff;
+            .button{
+                display: inline-block;
+                width: 255px;
+                height: 50px;
+                line-height: 58px;
+                color: #192212;
+                font-weight: bold;
+                font-size: 14px;
+                background: url("@{imgDomian}/pick-up.png") no-repeat left -10px;
+                background-size: 100% auto;
+                color: #0A2B01;
+                animation: openGitLoading 1s linear alternate infinite;
+            }
+            .cover-btn {
+                display: inline-block;
+                width: 255px;
+                height: 50px;
+                position: relative;
+                color: #fff;
+                background: rgba(0,0,0,0.28);
+                border-radius: 25px;
+                p {
+                    &:first-child {
+                        padding-top: 6px;
+                        color:#FFFFFF;
+                        font-size: 16px;
+                    }
+                    &:last-child {
+                        color: #9A4141;
+                    }
+                }
+            }
+        }
+    }
+    // 付费宝箱样式
+    .pay-box-wrap{
+        padding: 20px 0;
+        .pay-box-list {
+            margin-top: 40px;
+            >.item {
+                height: 186px;
+                width: 350px;
+                margin: 0 auto;
+                position: relative;
+                .bgImgNoColor("@{imgDomian}/gift/box-bg.png");
+                margin-bottom: 16px;
+                >.type-img {
+                    position: absolute;
+                    left: -6px;
+                    top: -8px;
+                    >img {
+                        width: auto;
+                        height: 124px;
+                    }
+                }
+                >.gift-wrap {
+                    text-align: right;
+                    width: auto;
+                    height: 90px;
+                    >div {
+                        height: 46px;
+                        color: #69FF00;
+                        font-size: 12px;
+                        box-sizing: border-box;
+                        padding-top: 4px;
+                        font-style: italic;
+                        position: relative;
+                        right: 10px;
+                        top: 4px;
+                        padding-right: 12px;
+                        >div>i {
+                            font-size: 12px;
+                        }
+                        >div > span{
+                            display: inline-block;
+                            font-size: 16px;
+                            font-weight: 900;
+                            height: 20px;
+                            &::after {
+                                content: '';
+                                display: inline-block;
+                                width: 20px;
+                                float: right;
+                                height: 20px;
+                                background: url("@{imgDomian}/coin.png") no-repeat center;
+                                background-size: 90%;
+                            }
+                        }
+                    }
+                }
+                >.info-tips{
+                    position: absolute;
+                    left: 48px;
+                    top: 6px;
+                    font-size: 12px;
+                    transform: scale(0.8);
+                    font-family: Helvetica;
+                    color: #FFFFFF;
+                    line-height: 12px;
+                    text-shadow: 0px 0px 5px #000000;
+                    width: 140px;
+                    font-size: 12px;
+                }
+                >.pay-box-btn{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: absolute;
+                    bottom: 8px;
+                    left: 16px;
+                    height: 50px;
+                    dl {
+                        height: 45px;
+                        color: #fff;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        &.mutil {
+                            color: #fff;
+                        }
+                        &:active {
+                            opacity: 0.7;
+                        }
+                        dt {
+                            font-size: 14px;
+                        }
+                        dd {
+                            font-size: 12px;
+                            span {
+                                display: inline-block;
+                                height: 0.5rem;
+                                line-height: 0.5rem;
+                                i {
+                                    font-style: normal;
+                                }
+                                &::after {
+                                    content: '';
+                                    display: inline-block;
+                                    height: 0.5rem;
+                                    width: 0.5rem;
+                                    float: right;
+                                    margin-left: 0.1rem;
+                                    background: url("@{imgDomian}/coin.png") no-repeat left center;
+                                    background-size: 70%;
+                                }
+                            }
+                        }
+                    }
+                    dl:first-child{
+                        width: 123px;
+                        background:url("@{imgDomian}/gift/once-bg.png") no-repeat;
+                        background-size: auto 100%;
+                        position: relative;
+                        height: 43px;
+                        background-position: left top;
+                    }
+                    dl:last-child{
+                        width: 213px;
+                        height: 43px;
+                        left: -8px;
+                        position: relative;
+                        background: url("@{imgDomian}/gift/ten-bg.png") no-repeat;
+                        background-size: auto 100%;
+                        background-position: left top;
+                    }
+                }
+                .gift-small {
+                    display: flex;
+                    justify-content: flex-end;
+                    padding-right: 4px;
+                    li {
+                        display: inline-block;
+                        height: 43px;
+                        width: 43px;
+                        border-radius: 6px;
+                        text-align: center;
+                        color: #fff;
+                        position: relative;
+                        margin-left: 1px;
+                        // overflow: hidden;
+                        img {
+                            display: inline-block;
+                            width: 43px;
+                        }
+                        span {
+                            position: absolute;
+                            bottom: -16px;
+                            left: -3px;
+                            width: 43px;
+                            overflow: hidden;
+                            font-size: 12px;
+                            transform: scale(0.8);
+                            text-overflow: ellipsis;
+                            display: inline-block;
+                            i {
+                                font-style: normal;
+                                font-weight: bold;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    .act-end {
+        width: 100%;
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 100%;
+        min-height: 100vh;
+        z-index: 0;
+        .bgImg(rgb(102, 16,9), "@{actEndImg}");
+        >.info {
+            position: absolute;
+            top: 50vh;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 16px;
+            box-sizing: border-box;
+            padding:  0 30px;
+        }
+    }
+    &.horizontal-flip {
+        .top {
+            flex-direction: row-reverse;
+            .avatar {
+                flex-direction: row-reverse;
+                .coins {
+                    transform: scaleX(-1);
+                }
+            }
+            .right {
+                flex-direction: row-reverse;
+                .rank {
+                    &::after {
+                        float: left;
+                    }
+                }
+            }
+        }
+        .main {
+            transform: scaleX(-1);
+        }
+        .free {
+            .free-info {
+                .title {
+                    p {
+                        transform: scaleX(-1);
+                    }
+                }
+                >div:last-child {
+                    flex-direction: column-reverse;
+                    // transform: scaleX(-1);
+                    text-align: right;
+                }
+            }
+            .bottom {
+                .button {
+                    transform: scaleX(-1);
+                }
+            }
+        }
+    }
+}
+.v-modal {
+    opacity: 0.92;
+}
+.mint-popup {
+    background:none;
+}
+.rules {
+    width: 8.6rem;
+    height: 60vh;
+    color: #fff;
+    padding: 0.3rem;
+    font-size: 15px;
+    background: linear-gradient(180deg, #860000 0%, #4F0001 100%);
+    border: 1px solid #FF1510;
+    border-radius: 15px;
+    .rule-title {
+        text-align: center;
+        position: relative;
+        font-size: 18px;
+        span {
+            display: inline-block;
+            position: absolute;
+            right: 0.3rem;
+        }
+        .closeRule {
+            >img {
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+            }
+        }
+    }
+    .rule-box {
+        overflow-x: hidden;
+        overflow-y: auto;
+        margin-top: 0.2rem;
+        height: 56vh;
+    }
+    dl {
+        padding: 0.3rem;
+        line-height:24px;
+        dt {
+            margin-bottom: 14px;
+            &:first-child {
+                margin-bottom: 4px;
+            }
+        }
+    }
+}
+
+.caidaiAndSnow() {
+    .caidai {
+        position: absolute;
+        top: 0px;
+        left:0px;
+        width:400PX;
+        height:481PX;
+        z-index: 2002;
+        background: url(https://h5.livuchat.com/staticProd/worldCup/img/ami/caidai.png) 0 0 no-repeat;
+        background-size: auto 481PX;
+        animation: ani 1.2s steps(34) .2s 1;
+        display:inline-block;
+    }
+    .snow {
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translate3d(-50%, 0, 0);
+        width: 375PX;
+        height:542PX;
+        background: url(https://h5.livuchat.com/staticProd/2022_christmas/img/ani/snow.png) no-repeat 0 0;
+        background-size: auto 542PX;
+        animation: ani 4s 2.6s steps(60) both infinite;
+    }
+}
+
+.open-free-gift-wrap {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    .caidaiAndSnow();
+    .caidai.lottery{
+        animation: ani 1.2s 3.4s steps(34) .2s both infinite;
+    }
+    .snow.lottery{
+        animation: ani 2.2s 3.3s steps(60) both infinite;
+    }
+    .coins {
+        position: absolute;
+        top: -10pxs;
+        left: 0;
+        width: 100%;
+        height: 729px;
+        overflow: hidden;
+        background: url(https://h5.livuchat.com/staticProd/2022_christmas/img/ani/coins.png) 0 0 no-repeat;
+        background-size: auto 729px;
+        animation: ani 3s steps(68) 0.2s  both 1;
+    }
+    .wrap-open-free {
+        height: 100vh;
+        width: 100%;
+        overflow: hidden;
+    }
+    .info-ok-box {
+        position: absolute;
+        top: 50%;
+        left: 0px;
+        width: 100%;
+        height: 200px;
+        transform: translate3d(0, -50%, 0);
+        font-size: 12px;
+        color: #fff;
+        text-align: center;
+        .info{
+            line-height: 40px;
+            > p {
+                padding:  0 16px;
+                line-height: 24px;
+                margin: 10px 0 20px;
+            }
+            ul {
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: center;
+                align-items: center;
+                li {
+                    position: relative;
+                    width: 50px;
+                    height: 50px;
+                    margin-left: 6px;
+                    // 
+                }
+                img {
+                    display: inline-block;
+                    height: 100%;
+                    height: 100%;
+                }
+            }
+        }
+        .btn-wrap{
+            text-align: center;
+            animation: gitInfoAnim 0.5s 0s both;
+            .btn {
+                display: inline-block;
+                width: 255px;
+                height: 50px;
+                line-height: 58px;
+                color: #192212;
+                font-weight: bold;
+                font-size: 14px;
+                text-align: center;
+                background: url("@{imgDomian}/pick-up.png") no-repeat left -10px;
+                background-size: 100% auto;
+            }
+        }
+    }
+    .open-free-gift {
+        position: relative;
+        height: 100%;
+        .top-info{
+            position: absolute;
+            top: 160PX;
+            width: 100%;
+            color: #fff;
+            text-align: center;
+            font-size: 14px;
+            background: url("@{imgDomian}/ani/lujiao.png") no-repeat center top;
+            background-size: 100px 30px;
+            animation: gitInfoAnim 0.5s 3.4s both;
+            h5 {
+                height: 40px;
+                padding-top: 26px;
+                font-size: 20px;
+            }
+        }
+        .info-box {
+            width: 100%;
+            height: 250px;
+            z-index: 2;
+            font-size: 12px;
+            position: absolute;
+            top: 430PX;
+            >div {
+                position: relative;
+                height: 100%;
+                width: 100%;
+                color: #fff;
+                .title {
+                    font-size: 16px;
+                    text-align: center;
+                }
+                >.info {
+                    font-size: 24px;
+                    height: 40px;
+                    line-height: 40px;
+                    padding-top: 40px;
+                    font-weight: bold;
+                    font-style: italic;
+                    color: #01FF2A;
+                    font-weight: bold;
+                    text-align: center;
+                    animation: gitInfoAnim 0.5s 3.4s both;
+                    margin-bottom: 10px;
+                }
+                .btn-wrap{
+                    text-align: center;
+                    animation: gitInfoAnim 0.5s 3.4s both;
+                    .btn {
+                        display: inline-block;
+                        width: 255px;
+                        height: 50px;
+                        line-height: 58px;
+                        color: #192212;
+                        font-weight: bold;
+                        font-size: 14px;
+                        text-align: center;
+                        background: url("@{imgDomian}/pick-up.png") no-repeat left -10px;
+                        background-size: 100% auto;
+                    }
+                }
+               
+            }
+        }
+    }
+    
+}
+
+.open-gift-wrap {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    .caidaiAndSnow();
+    @keyframes aniBox2 {
+        0%{
+            background-position: 0 0;
+        }
+        100%{
+            background-position: right 0;
+        }
+        
+    }
+    .ani-box {
+        position: absolute;
+        display: block;
+        top: -30px;
+        left: 50%;
+        transform: translate3d(-50%, 0,0);
+        height: 447PX;
+        width: 380PX;
+        z-index: -1;
+        background-size: auto 447PX;
+        animation: aniBox2 2s  0.4s steps(54) both;
+        &.box1 {
+            background: url(https://h5.livuchat.com/staticProd/2022_christmas/img/ani/1.png) no-repeat 0 0;
+        }
+        &.box2 {
+            background: url(https://h5.livuchat.com/staticProd/2022_christmas/img/ani/2.png) no-repeat 0 0;
+        }
+        &.box3 {
+            background: url(https://h5.livuchat.com/staticProd/2022_christmas/img/ani/3.png) no-repeat 0 0;
+        }
+        &.box4 {
+            background: url(https://h5.livuchat.com/staticProd/2022_christmas/img/ani/4.png) no-repeat 0 0;
+        }
+        
+    }
+    .ani-box2 {
+        position: absolute;
+        display: block;
+        top: -10px;
+        left: 50%;
+        transform: translate3d(-50%, 0,0);
+        height: 400PX;
+        width: 340PX;
+        z-index: -1;
+        background-size: auto 400PX;
+        animation: aniBox2 2s  0.4s steps(54) both;
+        &.box1 {
+            background: url(https://h5.livuchat.com/staticProd/2022_christmas/img/ani/1b.png) no-repeat 0 0;
+        }
+        &.box2 {
+            background: url(https://h5.livuchat.com/staticProd/2022_christmas/img/ani/2b.png) no-repeat 0 0;
+        }
+        &.box3 {
+            background: url(https://h5.livuchat.com/staticProd/2022_christmas/img/ani/3b.png) no-repeat 0 0;
+        }
+        &.box4 {
+            background: url(https://h5.livuchat.com/staticProd/2022_christmas/img/ani/4b.png) no-repeat 0 0;
+        }
+        &.box5 {
+            background: url(https://h5.livuchat.com/staticProd/2022_christmas/img/ani/5c.png) no-repeat 0 0;
+        }
+    }
+    > .open-gift {
+        &.gift-info {
+            position: absolute;
+            top: 50%;
+            width: 375px;
+            transform: translate3d(0,-50%,0);
+        }
+        &.ani-box {
+            width: 100%
+        }
+        .gift-box{
+            height: 310px;
+            position: relative;
+            .sun {
+                width: 375px;
+                height: 440px;
+                position: absolute;
+                top: 10px;
+                left: 0;
+                background: url("@{imgDomian}/ani/sun.png") no-repeat center;
+                background-size: 100% ;
+                animation: aniSun 1s 1.4s both, cycing 4s 2.4s infinite linear;
+                z-index: -1;
+            }
+            .header {
+                text-align: center;
+                position: relative;
+                font-size: 0.4rem;
+                height: 50px;
+                span {
+                    display: inline-block;
+                    position: absolute;
+                    height: 30px;
+                    width: 30px;
+                    top: 50px;
+                    right: 50px;
+                    z-index: 2008;
+                    img {
+                        display: inline-block;
+                        width: 100%;
+                        height: 100%;
+                        animation: gitInfoAnim 0.5s 2.2s both;
+                    }
+                }
+            }
+            .title {
+                text-align: center;
+                font-size: 14px;
+                color: #fff;
+                animation: gitInfoAnim 0.5s 2.2s both;
+                padding-top: 50px;
+                height: 80px;
+                box-sizing: border-box;
+                background:url("@{imgDomian}/ani/lujiao.png") no-repeat center top;
+                background-size: 140px 59px;
+            }
+            .get-gift {
+                height: 180px;
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                align-items: center;
+                text-align: center;
+                padding: 10px 30px;
+                position: relative;
+                z-index: 2005;
+                .gift-item {
+                    margin-right: 6px;
+                    margin-bottom: 20px;
+                    width: 56px;
+                    height: 56px;
+                    position: relative;
+                    &:nth-of-type(5n + 0) {
+                        margin-right: 0;
+                    }
+                    &.single {
+                        width: 100px;
+                        height: 100px;
+                        position: relative;
+                        margin-top: 10px;
+                        overflow: hidden;
+                    }
+                    &.gold {
+                        width: 2.8rem;
+                        height: 2.8rem;
+                        margin-top: 10px;
+                        span {
+                            font-size: 18px;
+                            bottom: 4px;
+                        }
+                    }
+                    &.goods {
+                        background: url(../../../assets/img/2022_christmas/img/gift/gift-bg.png) no-repeat;
+                        background-size: 100%;
+                        background-position: center;
+                        &.gift1 {
+                            background: url("@{imgDomian}/gift/gift-bg1.png") no-repeat;
+                            background-size: 100%;
+                            background-position: center;
+                        }
+                        &.gift2 {
+                            background: url("@{imgDomian}/gift/gift-bg2.png") no-repeat;
+                            background-size: 100%;
+                            background-position: center;
+                        }
+                        &.gift3 {
+                            background: url("@{imgDomian}/gift/gift-bg3.png") no-repeat;
+                            background-size: 100%;
+                            background-position: center;
+                        }
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            bottom:0;
+                            left:0;
+                            width:100%;
+                            height: 20px;
+                            background: rgba(0, 0, 0, 0.6);
+                            z-index: 0;
+                        }
+                        img {
+                            width: 80%;
+                            height: auto;
+                            margin-top: 8px;
+                        }
+                        span {
+                            display: inline-block;
+                            height: 20px;
+                            line-height: 20px;
+                            &::after {
+                                content: '';
+                                display: inline-block;
+                                width: 16px;
+                                height: 16px;
+                                position: relative;
+                                top:3px;
+                                left:2px;
+                                background: url(https://h5.livuchat.com/staticProd/2022_christmas/img/coin.png) no-repeat left bottom;
+                                background-size: 100%;
+                            }
+                        }
+                    }
+                    img {
+                        display: inline-block;
+                        width: 100%;
+                        height: 100%;
+                    }
+                    .smile {
+                        display: inline-block;
+                        display: inline-block;
+                        width: 100%;
+                        height: 100%;
+                        width: 2rem;
+                        height: 2rem;
+                        background: url(../../../assets/img/worldCup/smile.png) no-repeat;
+                        background-size: 100%;
+                        background-position: center;
+                    }
+                    &.coin{
+                        background: url(../../../assets/img/2022_christmas/img/gift/coin-bg.png);
+                        background-size: 100%;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            bottom:0;
+                            left:0;
+                            width:100%;
+                            height: 20px;
+                            background: rgba(0, 0, 0, 0.6);
+                            z-index: 0;
+                        }
+                    }
+                    &.coin1 {
+                        background: url("@{imgDomian}/gift/coin-bg.png");
+                        background-size: 100%;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            left:0;
+                            width: 100%;
+                            height: 100%;
+                            z-index: 0;
+                            background: url("@{imgDomian}/gift/coin1.png");
+                            background-size: 66%;
+                            background-repeat: no-repeat;
+                            background-position: center;
+                        }
+                       
+                    }
+                    &.coin2 {
+                        background: url("@{imgDomian}/gift/coin-bg2.png");
+                        background-size: 100%;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            left:0;
+                            width: 100%;
+                            height: 100%;
+                            z-index: 0;
+                            background: url("@{imgDomian}/gift/coin2.png");
+                            background-size: 66%;
+                            background-repeat: no-repeat;
+                            background-position: center;
+                        }
+                    }
+                    &.coin3 {
+                        background: url("@{imgDomian}/gift/coin-bg3.png");
+                        background-size: 100%;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            left:0;
+                            width: 100%;
+                            height: 100%;
+                            z-index: 0;
+                            background: url("@{imgDomian}/gift/coin3.png");
+                            background-size: 66%;
+                            background-repeat: no-repeat;
+                            background-position: center;
+                        }
+                        
+                    }
+                    span {
+                        position: absolute;
+                        bottom: 0px;
+                        left:0;
+                        text-align: center;
+                        color: #fff;
+                        width: 100%;
+                        font-size: 12px;
+                        line-height: 20px;
+                        height: 20px;
+                        font-weight: bold;
+                        transform: scale(0.8);
+                        z-index: 1;
+                    }
+                    .flash-light-box {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        overflow: hidden;
+                        &::before {
+                            content: '';
+                            opacity: .85;
+                            position: absolute;
+                            width: 500%;
+                            height: 100%;
+                            left: -200%;
+                            top: 0;
+                            background: url(../../../assets/img/worldCup/gift/light12.png) 0 center no-repeat;
+                            background-size: auto 140%;
+                            animation: left2right 1s linear 0.2s  both;
+                        }
+                    }
+                }
+            }
+          
+        }
+        .gift-btn {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            dl {
+                height: 60px;
+                color: #fff;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                width: 270px;
+                margin-top: 0.3rem;
+                background:url("@{imgDomian}/pick-up.png") no-repeat left -8px;
+                background-size: 100% auto;
+                color: #0A2B01;
+                padding-top: 4px;
+                &.disabled {
+                    pointer-events: none;
+                    position: relative;
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        display: inline-block;
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 25px;
+                        background: rgba(0, 0, 0, 0.6);
+                    }
+                }
+                &:active {
+                    opacity: 0.7;
+                }
+                dt {
+                    font-size: 0.4rem;
+                    margin-right: 16px;
+                    font-weight: bold;
+                    font-size: 15px;
+                }
+                dd {
+                    font-size: 15px;
+                    span {
+                        display: inline-block;
+                        height: 0.5rem;
+                        line-height: 0.5rem;
+                        &::after {
+                            content: '';
+                            display: inline-block;
+                            height: 0.5rem;
+                            width: 0.5rem;
+                            float: right;
+                            margin-left: 0.1rem;
+                            background: url(../../../assets/img/worldCup/icon.png) no-repeat left center;
+                            background-size: 70%;
+                        }
+                    }
+                }
+            }
+            dl:nth-child(1) {
+                animation: gitInfoAnim 0.5s 2s both;
+            }
+            dl:nth-child(2) {
+                animation: gitInfoAnim 0.5s 2.5s both;
+            }
+        }
+    }
+}
+
+.horizontal-flip {
+    // .rule-box {
+    //     text-align: right;
+    // }
+    .package {
+        transform: scaleX(-1);
+        .item {
+            .gift-small {
+                .type {
+                    img {
+                        transform: scaleX(-1);
+                    }
+                    > span {
+                        > i {
+                            display: inline-block;
+                            transform: scaleX(-1);
+                        }
+                    }
+                }
+            }
+            .gift-wrap {
+                >p {
+                    span {
+                        display: inline-block;
+                        transform: scaleX(-1);
+                    }
+                }
+            }
+            .coins {
+                i  {
+                    display: inline-block;
+                    transform: scaleX(-1);
+                }
+                span {
+                    transform: scaleX(-1);
+                }
+            }
+            .pkg-btn {
+             
+                dd {
+                    span {
+                        i {
+                            display: inline-block;
+                            transform: scaleX(-1);
+                        }
+                    }
+                }
+                dt {
+                    transform: scaleX(-1);
+                    span {
+                        display: inline-block;
+                        
+                    }
+                }
+            }
+        }
+    }
+}
+
+.gift-wrap-2{
+    width: 320px;
+    height: 400px;
+    .header {
+        text-align: center;
+        position: relative;
+        font-size: 0.4rem;
+        height: 50px;
+        span {
+            display: inline-block;
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            top: 50px;
+            right: 30px;
+            img {
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    .info {
+        position: relative;
+        z-index: 2002;
+        color: #fff;
+        text-align: center;
+        margin-top: 30px;
+        height: 100px;
+        >.item-wrap {
+            height: 60px;
+            text-align: center;
+            margin-bottom: 10px;
+            span {
+                display: inline-block;
+                width: 70px;
+                height: 70px;
+                background: url(../../../assets/img/2022_christmas/img/gift/gift-bg.png);
+                background-size: 100%;
+                background-position: center;
+                position: relative;
+                >img {
+                    display: inline-block;
+                    width: 60px;
+                    height: 60px;
+                    margin-top: 2px;
+                }
+                >i {
+                    display: inline-block;
+                    position: absolute;
+                    bottom: 0px;
+                    left: 0px;
+                    height: 20px;
+                    line-height: 20px;
+                    width: 100%;
+                    color: #fff;
+                    font-size: 13px;
+                    text-align: center ;
+                    // padding-right: 16px;
+                    box-sizing: border-box;
+                    background: linear-gradient(90deg, rgba(119,0,0,0) 0%, #670000 51%, rgba(113,0,0,0) 100%);
+                    &::after {
+                        content: '';
+                        height: 20px;
+                        width: 20px;
+                        position: absolute;
+                        top: 0px;
+                        right: 4px;
+                        background: url("@{coinsImg}") no-repeat right 45%;
+                        background-size: 80%;
+                    }
+                }
+            }
+        }
+        >p {
+            margin: 30px 30px;
+            font-size: 14px;
+        }
+        .btn-wrap{
+            text-align: center;
+            animation: gitInfoAnim 0.5s 0s both;
+            .btn {
+                display: inline-block;
+                width: 255px;
+                height: 50px;
+                line-height: 58px;
+                color: #192212;
+                font-weight: bold;
+                font-size: 14px;
+                text-align: center;
+                background: url("@{imgDomian}/pick-up.png") no-repeat left -10px;
+                background-size: 100% auto;
+            }
+        }
+    }
+}
+[lang="ar"],
+[lang="he"],
+[lang="ur"] {
+    .rules {
+        direction: rtl;
+    }
+    .page-word-cup .info {
+        direction: rtl;
+    }
+    .title {
+        direction: rtl;
+    }
+    .free .bottom {
+        direction: rtl;
+    }
+    .open-free-gift-wrap .open-free-gift .info-box {
+        direction: rtl;
+        .title {
+        }
+    }
+}
+[lang="fr"],[lang="ru"] {
+    .page-word-cup .godness .go-fans {
+        font-size: 12px;
+    }
+}
+
+[lang="ru"] {
+    .page-word-cup .godness .go-fans {
+        font-size: 12px;
+        padding-left: 10px;
+    }
+}

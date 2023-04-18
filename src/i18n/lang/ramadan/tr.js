@@ -1,0 +1,20 @@
+export default {
+  title: 'Bayramınız Mübarek Olsun',
+  desc: 'İki kat ödül puanları toplamak için belirtilen tarihte Günlük Aktif Görevleri tamamlayın',
+  rules: 'Etkinlik İçeriği:',
+  rules1: 'İki kat ödül puanları toplamak için belirtilen tarihte Günlük Aktif Görevleri tamamlayın',
+  rules2: 'Özel İki Kat Aktiflik Ödülü için sınırlı süre: ',
+  rules2a: "2 Nisan, UTC+0'dan 5 Nisan, UTC+0'a kadar;",
+  rules2b: '',
+  rules3: '',
+  rules3a: '',
+  rules3b: '',
+  rules3c: '',
+  daily: 'Lütfen takvimi kontrol edin ve iki kat ödül kazanabileceğiniz zamanları görün',
+  rules4: 'Etkinlikten elde edilen ödül Puanları, haftalık ödemelerle birlikte hesaplanacaktır. Bu faaliyetin nihai yorumu şirket yetkililerine aittir.',
+  double: 'İki Kat Ödül  ',
+  triple: '',
+  faq: 'SSS',
+  faqInfo: 'Günlük Aktif Ödüller sayfasını nerede bulabilirim?',
+  interpretation: 'Bu faaliyetin nihai yorumu şirket yetkililerine aittir.'
+}

@@ -1,0 +1,284 @@
+@import "./common.less";
+
+@danmuBg1: "@{imgDominLucky}/danmu/danmubg1.png";
+@danmuBg2: "@{imgDominLucky}/danmu/danmubg2.png";
+@danmuCup: "@{imgDomian}/danmu/danmu-cup.png";
+@danmuFootball: "@{imgDomian}/danmu/danmu-football2.png";
+@rankImg: "@{imgDomian}/rank.png";
+@helpImg: "@{imgDomian}/help2.png";
+@titleInfoImg: "@{imgDomian}/info-bg.png";
+@giftImgPrefix: "https://h5.livuchat.com/staticProd/2022_christmas/gift";
+
+.bullet-screen {
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    >div {
+      position: relative;
+      height: 40px;
+      width: 100%;
+      overflow: hidden;
+      .item {
+        min-width: 140px;
+        height: 40px;
+        font-size: 13px;
+        margin-left: 20px;
+        background: url("@{danmuBg1}") no-repeat left top;
+        background-size: 100% 100%;
+        &.sepcial{
+          background: url("@{danmuBg2}") no-repeat left top;
+          background-size: 100% 100%;
+          .danmu-gift .coins {
+              display: inline-block;
+              height: 40px;
+              line-height: 40px;
+              color: #fff;
+              background: url("@{imgDomian}/danmu/danmu-coins.png") no-repeat right 45%;
+              background-size: 26PX;
+              padding-right: 28PX;
+          }
+          .user-name {
+            display: inline-block;
+            height: 40px;
+            line-height: 40px;
+            font-weight: bold;
+          }
+        }
+        position: relative;
+        display: flex;
+        justify-content: flex-start;
+        span {
+          display: inline-block;
+          height: 40px;
+          line-height: 40px;
+          box-sizing: border-box;
+        }
+        .box-img {
+          display: inline-block;
+          width: auto;
+          position: absolute;
+          left: -20px;
+          top: 2px;
+          height: 38px;
+        }
+        .user-name {
+          display: inline-block;
+          font-weight: bold;
+          height: 40px;
+          line-height: 40px;
+          padding-left: 28px;
+          color: #fff;
+        }
+        .danmu-gift {
+          position: absolute;
+          display: inline-block;
+          right: 4px;
+          min-width: 40px;
+          height: 40px;
+          .coins{
+            display: inline-block;
+            height: 40px;
+            line-height: 40px;
+            color: #fff;
+            background: url("@{imgDomian}/danmu/danmu-coins.png") no-repeat right 45%;
+            background-size: 32px;
+            padding-right: 30px;
+          }
+          span {
+            position: relative;
+            display: inline-block;
+            text-align: center;
+            img {
+              display: inline-block;
+              position: absolute;
+              max-width: 40px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .top{
+        height: 60px;
+        padding:0px 13px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        color: #fff;
+        position: relative;
+        z-index: 2;
+        .avatar{
+            display: inline-block;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            height: 30px;
+            line-height: 30px;
+            background-color: #441800;
+            border: 1px solid rgba(255, 250, 204, 1);
+            border-radius: 16px;
+            padding-right: 4px;
+            img{
+                display: inline-block;
+                height: 30px;
+                width: 30px;
+                border-radius: 16px;
+                margin-right: 4px;
+            }
+            .coin{
+                color: #ffea25;
+                font-size: 12px;
+                &::before {
+                    content: '';
+                    display: inline-block;
+                    height: 30px;
+                    width: 30px;
+                    float: left;
+                    background: url("@{imgDomian}/coin.png") no-repeat center 45%;
+                    background-size: 60%;
+                }
+                &::after {
+                  content: '';
+                  display: inline-block;
+                  height: 18px;
+                  width: 1px;
+                  float: right;
+                  margin-top: 6px;
+                  margin-left: 8px;
+                  margin-right: 4px;
+                  background: #410101;
+
+              }
+            }
+            .gifts{
+              color: #ffea25;
+              font-size: 12px;
+              &::before {
+                  content: '';
+                  display: inline-block;
+                  height: 30px;
+                  width: 20px;
+                  float: left;
+                  background: url("@{imgDomian}/gifts-icon.png") no-repeat center 45%;
+                  background-size: 60%;
+              }
+          }
+        }
+        .right{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            .rank{
+                display: inline-block;
+                height: 30px;
+                line-height: 30px;
+                background-color: #441800;
+                border: 1px solid rgba(255, 250, 204, 1);
+                border-radius: 16px;
+                color: #FFE500;
+                width: 80px;
+                font-weight: bold;
+                text-align: center;
+                padding: 0 4px;
+                font-size: 14px;
+                cursor: pointer;
+                position: relative;
+                overflow: hidden;
+                &::after {
+                  content: '';
+                  opacity: .85;
+                  position: absolute;
+                  width: 500%;
+                  height: 100%;
+                  left: -200%;
+                  top: -2px;
+                  background: url(../../../assets/img/worldCup/gift/light12.png) 0 center no-repeat;
+                  background-size: auto 160%;
+                  animation: left2right 2s linear 0.2s both infinite; 
+                }
+            }
+            .rule-open{
+                display: inline-block;
+                height: 30px;
+                width: 30px;
+                margin-left: 4px;
+                background-color: #441800;
+                border: 1px solid rgba(255, 250, 204, 1);
+                border-radius: 16px;
+                position: relative;
+                &::after {
+                  content: '';
+                  display:block;
+                  position: absolute;
+                  top:0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background: rgba(0, 0, 0, 0.1) url("@{helpImg}") no-repeat;
+                  background-size: 100%;
+                  background-position: center;
+                }
+            }
+        }
+  }
+  h4 {
+      height: 100px;
+      text-align: center;
+      font-size: 26px;
+      margin-top: 80px;
+      color: #fff;
+      font-weight: bold;
+      position: relative;
+      &::before {
+        content: '';
+        display: block;
+        height: 100px;
+        width: 100%;
+        position: absolute;
+        left:0;
+        top:0;
+        background: url("@{titleInfoImg}") no-repeat top center;
+        background-size: auto 100%;
+        z-index: 2
+      }
+
+      
+      >.gift-pkg-box{
+        position: absolute;
+        top: -40px;
+        left: 50%;
+        width: 100px;
+        height: 100px;
+        transform: translate3d(-50%, 0,0);
+        z-index: 1;
+        > img {
+          display: inline-block;
+          width: 100px;
+          height: 100px;
+          animation: boxAni 1s 0s 2;
+        }
+      }
+  }
+  .free-tips {
+      margin: 0px 16px 20px;
+      height: 26px;
+      line-height: 26px;
+      color: #fff;
+      text-align: center;
+      background: linear-gradient(90deg, rgba(109,212,0,0) 0%, rgba(27,255,0,0.53) 47%, rgba(247,181,0,0) 100%);;
+  }
+  [lang="ar"],
+  [lang="he"],
+  [lang="ur"] {
+      direction: rtl;
+      .free-tips {
+        span {
+          direction: rtl;
+          display: inline-block;
+        }
+      }
+  }

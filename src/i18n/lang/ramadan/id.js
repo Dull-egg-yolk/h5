@@ -1,0 +1,20 @@
+export default {
+  title: 'Idul Fitri',
+  desc: 'Selesaikan Tugas Aktif Harian pada tanggal yang ditentukan untuk mengumpulkan poin hadiah Ganda',
+  rules: 'Isi Acara:',
+  rules1: 'Selesaikan Tugas Aktif Harian pada tanggal yang ditentukan untuk mengumpulkan poin hadiah Ganda',
+  rules2: 'Tanggal terbatas untuk pengumpulan Hadiah Aktif Harian Ganda:',
+  rules2a: '2 April, zona waktu UTC+0 hingga 5 April, UTC+0;',
+  rules2b: '',
+  rules3: '',
+  rules3a: '',
+  rules3b: '',
+  rules3c: '',
+  daily: 'Silakan perhatikan kalender untuk melihat kapan Kamu bisa mendapatkan Hadiah Aktif Harian ganda di bawah ini',
+  rules4: 'Poin Reward dari aktivitas akan dihitung bersama dengan Pembayaran mingguan.Pihak aplikasi berhak atas interpretasi akhir dari kegiatan ini.',
+  double: 'Hadiah Ganda',
+  triple: '',
+  faq: 'FAQ',
+  faqInfo: 'Di manakah saya bisa menemukan halaman Hadiah Aktif Harian?',
+  interpretation: 'Pihak aplikasi berhak atas interpretasi akhir dari kegiatan ini.'
+}

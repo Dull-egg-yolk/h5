@@ -1,0 +1,25 @@
+
+@mainBgColor: rgb(243,183,79);
+@imgDomian: "https://h5.livuchat.com/staticProd/2022_christmas/img";
+@imgDominLucky: "https://h5.livuchat.com/staticProd/20230109_luckybox/img";
+@imgDominLuckyGift: "https://h5.livuchat.com/staticProd/20230109_luckybox/gift";
+@mainBgImg:"bg.png";
+@rankBgImg: "bg.png";
+@cuntdownBgImg: "time-bg.png";
+@videoBgImg: "godness_bg2.jpg";
+@titleInfoImg: "@{imgDominLucky}/jinbi2.png";
+@actEndImg: "@{imgDominLucky}/act-end.png";
+@danmuCoins: "@{imgDomian}/danmu/danmu-coins.png";
+@coinsImg: "@{imgDomian}/coin.png";
+
+.bgImg(@bgColor, @bgImg) {
+    background:@bgColor url("@{bgImg}") no-repeat;
+    background-position: left top;
+    background-size: 100% auto;
+}
+
+.bgImgNoColor(@bgImg) {
+    background:url("@{bgImg}") no-repeat;
+    background-position: left top;
+    background-size: 100%;
+}

@@ -1,0 +1,357 @@
+<template>
+  <div class="page-videos">
+    <div class="swiper" id="verticalSwiper">
+      <div class="swiper-wrapper" ref="swiper">
+        <div class="swiper-slide" v-if="infos[0]">
+          <div class="seeImg-content">
+            <div class="cover">
+              <div class="icon-load" v-if="showLoad">
+                <span class="icon"></span>
+              </div>
+              <video :src="infos[0].videoUrls[currVideoIndex]" :poster="infos[0].videoPic || infos[0].headImg"
+                webkit-playsinline="true" playsinline="true" loop :id="'videoPlayer' + infos[0].userId"></video>
+            </div>
+            <div class="inner">
+              <div class="header-info" @click="jumpToProfile(infos[0])">
+                <div class="avatar-img">
+                  <div class="avatar-wrap">
+                    <img :src="infos[0].headImg" alt />
+                  </div>
+                </div>
+                <div class="user-right">
+                  <div class="user-name"> {{ infos[0].userName }},{{ infos[0].age }} <div class="status-txt-tag" :class="userStatus[infos[0].onlineState]">{{ userStatus[infos[0].onlineState] }}</div></div>
+                  <div class="user-country">
+                    <country :countryId="infos[0].countryId"></country>
+                  </div>
+                </div>
+              </div>
+              <div class="footer">
+                <div class="user-video flex-row-vc">
+                  <div class="user-call" @click="chatNow(infos[0])"><span class="icon-video2"></span>{{
+                      $t("worldCup.chatNow")
+                  }}</div>
+                </div>
+              </div>
+            </div>
+            <div class="video-pagination">
+              <div class="btn-pre" @click="changeVideo(infos[0],-1)"></div>
+              <div class="btn-next" @click="changeVideo(infos[0],1)"></div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide" v-if="infos[1]">
+          <div class="seeImg-content">
+            <div class="cover">
+              <div class="icon-load" v-if="showLoad">
+                <span class="icon"></span>
+              </div>
+              <video :src="infos[1].videoUrls[currVideoIndex]" :poster="infos[1].videoPic || infos[1].headImg"
+                webkit-playsinline="true" playsinline="true" loop :id="'videoPlayer' + infos[1].userId"></video>
+            </div>
+            <div class="inner">
+              <div class="header-info" @click="jumpToProfile(infos[1])">
+                <div class="avatar-img">
+                  <div class="avatar-wrap">
+                    <img :src="infos[1].headImg" alt />
+                  </div>
+                </div>
+                <div class="user-right">
+                  <div class="user-name"> {{ infos[1].userName }},{{ infos[1].age }} <div class="status-txt-tag" :class="userStatus[infos[0].onlineState]">{{ userStatus[infos[0].onlineState] }}</div></div>
+                  <div class="user-country">
+                    <country :countryId="infos[1].countryId"></country>
+                  </div>
+                </div>
+              </div>
+              <div class="footer">
+                <div class="user-video flex-row-vc">
+                  <div class="user-call" @click="chatNow(infos[1])"><span class="icon-video2"></span>{{
+                      $t("worldCup.chatNow")
+                  }}</div>
+                </div>
+              </div>
+            </div>
+            <div class="video-pagination">
+              <div class="btn-pre" @click="changeVideo(infos[1],-1)"></div>
+              <div class="btn-next" @click="changeVideo(infos[1],1)"></div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide" v-if="infos[2]">
+          <div class="seeImg-content">
+            <div class="cover">
+              <div class="icon-load" v-if="showLoad">
+                <span class="icon"></span>
+              </div>
+              <video :src="infos[2].videoUrls[currVideoIndex]" :poster="infos[2].videoPic || infos[2].headImg"
+                webkit-playsinline="true" playsinline="true" loop :id="'videoPlayer' + infos[2].userId"></video>
+            </div>
+            <div class="inner">
+              <div class="header-info" @click="jumpToProfile(infos[2])">
+                <div class="avatar-img">
+                  <div class="avatar-wrap">
+                    <img :src="infos[2].headImg" alt />
+                  </div>
+                </div>
+                <div class="user-right">
+                  <div class="user-name"> {{ infos[2].userName }},{{ infos[2].age }} <div class="status-txt-tag" :class="userStatus[infos[0].onlineState]">{{ userStatus[infos[0].onlineState] }}</div></div>
+                  <div class="user-country">
+                    <country :countryId="infos[2].countryId"></country>
+                  </div>
+                </div>
+              </div>
+              <div class="footer">
+                <div class="user-video flex-row-vc">
+                  <div class="user-call" @click="chatNow(infos[2])"><span class="icon-video2"></span>{{
+                      $t("worldCup.chatNow")
+                  }}</div>
+                </div>
+              </div>
+            </div>
+            <div class="video-pagination">
+              <div class="btn-pre" @click="changeVideo(infos[2],-1)"></div>
+              <div class="btn-next" @click="changeVideo(infos[2],1)"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script type="text/babel">
+import { triggerService } from '@/utils/statisticalTool'
+import Country from '@/views/components/country'
+import Swiper from 'swiper'
+
+export default {
+  components: { Country },
+  props: {
+    list: {
+      type: Array,
+      require: true
+    },
+    curHostIndex: {
+      type: Number,
+      require: true
+    },
+    sortTypeName: String,
+    isProfile: {
+      type: Boolean,
+      default: () => {
+        return false
+      }
+    }
+  },
+  data () {
+    return {
+      stateCode: {},
+      isFav: false,
+      showLoad: true,
+      infos: [],
+      activeIndex: 0, // 数据index
+      swiperIndex: 0, // swiperid
+      reportVideo: null,
+      showReport: false,
+      swiper: null,
+      videoPlayer: null,
+      num: 0,
+      userStatus: {
+        0: 'offline',
+        1: 'busy',
+        2: 'online',
+        3: 'invsible'
+      },
+      currVideoIndex: 0 // 左右切换
+    }
+  },
+  methods: {
+    changeVideo (item, val) {
+      const len = item.videoUrls.length
+      const ind = this.currVideoIndex + val
+      if (ind >= 0 && ind <= len - 1) {
+        this.currVideoIndex = ind
+        this.playerListener(item, 'oneUser')
+
+        triggerService({
+          eventId: '105-10-2-5',
+          targetUserId: item.userId,
+          freeName1: item.videoPic,
+          freeName2: this.currVideoIndex
+        }) // 视频点击
+      } else {
+        console.log('----到头了---')
+      }
+    },
+    // 用户主页
+    jumpToProfile (item) {
+      const userIndex = 'profile/'
+      const src = this.$deepLink + userIndex + item.userId
+      window.location.href = src
+    },
+    playerListener (item, type) {
+      if (!item.videoUrls[this.currVideoIndex]) {
+        this.showLoad = false
+      } else {
+        this.showLoad = true
+      }
+
+      if (type !== 'one') {
+        triggerService({
+          eventId: '105-10-2-6',
+          targetUserId: item.userId,
+          freeName1: item.videoPic
+        }) // 视频播放
+      }
+
+      this.videoPlayer = document.getElementById(
+        `videoPlayer${item.userId}`
+      )
+
+      if (this.videoPlayer) {
+        this.videoPlayer.src = item.videoUrls[this.currVideoIndex]
+      }
+      if (!this.videoPlayer || !this.videoPlayer.src) return
+      this.videoPlayer.removeEventListener('playing', this.hideLoad)
+      this.playing = false
+      this.videoPlayer.addEventListener('playing', this.hideLoad)
+      this.videoPlayer.pause()
+      setTimeout(() => {
+        this.videoPlayer.play()
+      }, 100)
+      this.videoPlayer &&
+        this.videoPlayer.addEventListener('canplay', () => {
+          this.num++
+        })
+    },
+    init () {
+      const that = this
+      // eslint-disable
+      this.swiper = new Swiper('#verticalSwiper', {
+        allowTouchMove: true,
+        loop: false, // 循环模式选项
+        direction: 'vertical', // 垂直切换选项
+        observer: true, // 动态监听
+        mousewheel: true, // 鼠标滚轮事件
+        on: {
+          init: function () {
+            that.swiperIndex = this.activeIndex
+            if (
+              that.activeIndex !== 0 &&
+              that.activeIndex !== that.list.length - 1
+            ) {
+              this.slideTo(1, 0, false)
+              that.swiperIndex = 1
+            } else if (that.activeIndex === that.list.length - 1) {
+              this.slideTo(that.activeIndex, 0, false)
+              that.swiperIndex = that.infos.length - 1
+            }
+            setTimeout(() => {
+              that.playerListener(that.list[that.activeIndex])
+            })
+          },
+          slideChangeTransitionEnd: function (swiper) {
+            that.currVideoIndex = 0
+            if (that.videoPlayer) {
+              that.videoPlayer.pause()
+              that.videoPlayer = null
+            }
+            if (this.activeIndex > that.swiperIndex) {
+              console.log('---11111---')
+              that.activeIndex += 1
+              const item = that.list[that.activeIndex]
+              triggerService({
+                eventId: '105-10-2-7',
+                targetUserId: item.userId,
+                freeName1: item.videoPic
+              }) // 下一个
+              that.swiperIndex = this.activeIndex
+              that.getInfo()
+              if (that.activeIndex !== that.list.length - 1) {
+                this.slideTo(1, 0, false)
+                that.swiperIndex = 1
+              }
+            } else if (this.activeIndex < that.swiperIndex) {
+              console.log('---2222---')
+              that.activeIndex -= 1
+              const item = that.list[that.activeIndex]
+              triggerService({
+                eventId: '105-10-2-8',
+                targetUserId: item.userId,
+                freeName1: item.videoPic
+              }) // 下一个
+              that.swiperIndex = this.activeIndex
+              that.getInfo()
+              if (that.activeIndex !== 0) {
+                this.slideTo(1, 0, false)
+                that.swiperIndex = 1
+              }
+            }
+
+            that.$nextTick(() => {
+              that.playerListener(that.infos[that.swiperIndex])
+            })
+          }
+        }
+      })
+    },
+    switchHost (type) {
+      if (type === 'prv') {
+        this.swiper.slidePrev(500, true)
+      } else {
+        this.swiper.slideNext(500, true)
+      }
+    },
+    getInfo () {
+      if (this.list.length > 3) {
+        let indexs = []
+        if (this.activeIndex === 0) {
+          // 第一项
+          indexs = [0, 1, 2]
+        } else if (this.activeIndex === this.list.length - 1) {
+          // 最后一项
+          indexs = [
+            this.activeIndex - 2,
+            this.activeIndex - 1,
+            this.activeIndex
+          ]
+        } else {
+          // 中间的
+          indexs = [
+            this.activeIndex - 1,
+            this.activeIndex,
+            this.activeIndex + 1
+          ]
+        }
+        this.infos = this.list.filter((item, index) => {
+          return indexs.includes(index)
+        })
+      } else {
+        this.infos = this.list
+      }
+    },
+    hideLoad () {
+      this.showLoad = false
+      this.playing = true
+    },
+    chatNow (item) {
+      this.$emit('chatClick', item)
+    }
+  },
+  mounted () {
+    this.activeIndex = this.curHostIndex
+    this.getInfo()
+    this.$nextTick(() => {
+      this.init()
+    })
+  },
+  created () { },
+  beforeDestroy () {
+    if (this.videoPlayer) {
+      this.videoPlayer.pause()
+      this.videoPlayer = null
+    }
+  }
+}
+</script>
+<style lang="less" scope>
+@import url('./videos.less');
+</style>

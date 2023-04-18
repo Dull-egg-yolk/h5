@@ -1,0 +1,246 @@
+html,
+body {
+	height: 100%;
+	overflow: auto;
+	background: #8E1295;
+}
+
+.cosplay-page {
+
+	.page-title {
+		height: 270px;
+		background: url(../../assets/img/cosplay/cos-bg.png) top no-repeat;
+		background-attachment: scroll, fixed;
+		background-size: 100% auto;
+		position: relative;
+		.head {
+			text-align: center;
+			font-size: 18px;
+			font-weight: bold;
+			font-family: FiraSans-BlackItalic, FiraSans;
+			color: #3D1D0A;
+			padding-top: 10px;
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			.title {
+				width: 80%;
+				height: 50px;
+				background: linear-gradient(90deg, #F4C340 0%, #FFE5A2 60%, #F5C341 100%);
+				border-radius: 9px;
+				backdrop-filter: blur(6.25px);
+				line-height: 50px;
+			}
+		}
+		.coin {
+			position: absolute;
+			bottom: 20px;
+			animation: coinFlow 3s infinite;
+			img {
+				width: 100%;
+			}
+		}
+	}
+
+	.body {
+		padding: 20px 15px;
+
+		.info {
+			margin-bottom: 20px;
+
+			.title {
+				height: 60px;
+				width: 100%;
+				background: linear-gradient(180deg, #D91EE3 0%, #8E1295 100%);
+				border-radius: 26px 26px 0px 0px;
+				backdrop-filter: blur(6.944444444444445px);
+				line-height: 70px;
+				color: #ffffff;
+				font-size: 18px;
+				position: relative;
+
+				p {
+					padding-left: 20px;
+				}
+				.tip {
+					height: 80px;
+					width: 80px;
+					position: absolute;
+					right: 0;
+					top: -12px;
+					background: url("../../assets/img/cosplay/cos-ico.png");
+			    background-repeat: no-repeat;
+			    background-size: 100% auto;
+				}
+			}
+
+			.content {
+				background: url("../../assets/img/cosplay/cos-c-bg.png");
+			  background-repeat: no-repeat;
+			  background-size: 100% auto;
+				border-radius: 0 0 30px 30px;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				padding-bottom: 20px;
+				color: #ffffff;
+
+				p {
+					font-size: 14px;
+					padding: 10px;
+					text-align: left;
+				}
+
+				.time {
+					text-align: center;
+				}
+
+				div {
+					font-size: 18px;
+					font-weight: bold;
+				}
+			}
+			// .content2 {
+			// 	background: url("../../assets/img/cosplay/cos-c-bg.png");
+			//   background-repeat: repeat !important;
+			//   background-size: 100% auto;
+			// }
+			.content1 {
+				background: #C812D2;
+				// background: url("../../assets/img/cosplay/cos-c-bg.png");
+			  // background-repeat: no-repeat;
+			  // background-size: 100% auto;
+				border-radius: 0 0 30px 30px;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				padding-bottom: 20px;
+				color: #ffffff;
+
+				p {
+					font-size: 14px;
+					padding: 10px;
+					text-align: left;
+				}
+				.content-img {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					padding: 10px 15px;
+					img {
+						width: 150px;
+						height: 125px;
+					}
+				}
+				.img-p {
+					text-align: center;
+					padding: 5px 0;
+					font-size: 16px;
+					font-weight: 400;
+          color: #FCD5FF;
+				}
+				.time {
+					text-align: center;
+				}
+
+				div {
+					font-size: 18px;
+					font-weight: bold;
+				}
+			}
+		}
+
+		.fotter {
+			text-align: center;
+			font-size: 22px;
+			font-family: Helvetica-Bold, Helvetica;
+			font-weight: bold;
+			color: #2C2924;
+			line-height: 38px;
+			padding-top: 20px;
+		}
+	}
+}
+
+.mint-popup {
+	background: #C812D2;
+	border-radius: 30px;
+	width: 280px;
+	height: 160px;
+	padding: 40px 20px;
+
+	.pop-content {
+		position: relative;
+		font-size: 16px;
+		margin-top: 20px;
+		padding: 0 10px;
+		width: 100%;
+		color: #FDE4FF;
+
+		a {
+			color: #FFE5A2;
+			margin-left: 5px;
+			text-decoration: underline;
+		}
+
+		img {
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+	}
+
+	.green-btn {
+		margin-top: 40px;
+		width: 100%;
+		text-align: center;
+
+		span {
+			display: inline-block;
+			width: 251px;
+			height: 60px;
+			line-height: 60px;
+			font-size: 17px;
+			background: linear-gradient(90deg, #F4C340 0%, #FFE5A2 60%, #F5C341 100%);
+			border-radius: 50px;
+			backdrop-filter: blur(6.25px);
+		}
+	}
+}
+@keyframes coinFlow {
+  0%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(-10px);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+[lang="ar"]{
+	.cosplay-page {
+		direction: rtl;
+	}
+	.cosplay-page .body .info .title .tip {
+    position: absolute;
+    right: auto;
+		left: 0;
+    top: -0.32rem;
+  }
+  .cosplay-page .body .info .title p {
+  	padding-right: 20px;
+  }
+	.cosplay-page .body .info .content1 p {
+		text-align: right;
+	}
+}
+[lang="ru"]{
+	.cosplay-page .body .info .title {
+		font-size: 14px;
+	}
+}

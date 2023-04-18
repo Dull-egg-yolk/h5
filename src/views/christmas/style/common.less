@@ -1,0 +1,23 @@
+
+@mainBgColor: #860000;
+@imgDomian: "https://h5.livuchat.com/staticProd/2022_christmas/img";
+@mainBgImg:"main.jpg";
+@rankBgImg: "rank_bg1.jpg";
+@cuntdownBgImg: "time-bg.png";
+@videoBgImg: "godness_bg2.jpg";
+@titleInfoImg: "@{imgDomian}/info-bg.png";
+@actEndImg: "@{imgDomian}/end-bg.jpg";
+@danmuCoins: "@{imgDomian}/danmu/danmu-coins.png";
+@coinsImg: "@{imgDomian}/coin.png";
+
+.bgImg(@bgColor, @bgImg) {
+    background:@bgColor url("@{bgImg}") no-repeat;
+    background-position: left top;
+    background-size: 100% auto;
+}
+
+.bgImgNoColor(@bgImg) {
+    background:url("@{bgImg}") no-repeat;
+    background-position: left top;
+    background-size: 100%;
+}

@@ -1,0 +1,196 @@
+html,
+body {
+	height: 100%;
+	overflow: auto;
+	background: #E9D7BC;
+}
+
+.bunny-page {
+
+	.page-title {
+		height: 430px;
+		background: url(../../assets/img/bunny/bunny-bg.png) top no-repeat;
+		background-attachment: scroll, fixed;
+		background-size: 100% auto;
+		position: relative;
+		.head {
+			text-align: center;
+			font-size: 18px;
+			font-weight: bold;
+			font-family: FiraSans-BlackItalic, FiraSans;
+			color: #3D1D0A;
+			padding-top: 10px;
+		}
+		.title {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			text-align: center;
+			font-size: 26px;
+			font-family: Helvetica-Bold, Helvetica;
+			font-weight: bold;
+			color: #FFB436;
+			line-height: 30px;
+			background: url(../../assets/img/bunny/tiitle-bg1.png) top no-repeat;
+			background-attachment: scroll, fixed;
+			background-size: 100% auto;
+			height: 145px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			p {
+				margin-bottom: 25px;
+
+				padding: 0 10px;
+				// height: 145px;
+				// width: 100%;
+				// background: url(../../assets/img/bunny/tiitle-bg1.png) top no-repeat;
+				// background-attachment: scroll, fixed;
+				// background-size: 100% auto;
+				// display: flex;
+				// justify-content: center;
+				// align-items: center;
+			}
+		}
+	}
+
+	.body {
+		padding: 20px 15px;
+
+		.info {
+			margin-bottom: 10px;
+
+			.title {
+				height: 60px;
+				width: 100%;
+				background: url(../../assets/img/bunny/bunny-title.png) no-repeat center 0;
+				background-attachment: scroll, fixed;
+				background-size: 100% auto;
+				line-height: 70px;
+				color: #FFB436;
+				font-size: 18px;
+
+				p {
+					padding-left: 20px;
+				}
+			}
+
+			.content {
+				background: #FFF2DB;
+				border-radius: 0 0 30px 30px;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				padding-bottom: 20px;
+				color: #3D1D0A;
+
+				p {
+					font-size: 14px;
+					padding: 10px;
+					text-align: left;
+				}
+
+				.time {
+					text-align: center;
+				}
+
+				div {
+					font-size: 18px;
+					font-weight: bold;
+				}
+			}
+			.content1 {
+				background: #FFF2DB;
+				border-radius: 0 0 30px 30px;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				padding-bottom: 20px;
+				color: #3D1D0A;
+
+				p {
+					font-size: 14px;
+					padding: 10px;
+					text-align: left;
+				}
+
+				.time {
+					text-align: center;
+				}
+
+				div {
+					font-size: 18px;
+					font-weight: bold;
+				}
+			}
+		}
+
+		.fotter {
+			text-align: center;
+			font-size: 22px;
+			font-family: Helvetica-Bold, Helvetica;
+			font-weight: bold;
+			color: #2C2924;
+			line-height: 38px;
+			padding-top: 20px;
+		}
+	}
+}
+
+.mint-popup {
+	background: #FFF2DB;
+	border-radius: 30px;
+	width: 280px;
+	height: 160px;
+	padding: 40px 20px;
+
+	.pop-content {
+		position: relative;
+		font-size: 16px;
+		margin-top: 20px;
+		padding: 0 10px;
+		width: 100%;
+
+		a {
+			color: rgb(160, 77, 16);
+			margin-left: 5px;
+			text-decoration: underline;
+		}
+
+		img {
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+	}
+
+	.green-btn {
+		margin-top: 40px;
+		width: 100%;
+		text-align: center;
+
+		span {
+			display: inline-block;
+			width: 251px;
+			height: 60px;
+			line-height: 50px;
+			background: url("../../assets/img/bunny/bunny-button.png");
+			background-repeat: no-repeat;
+			background-size: 100% auto;
+			font-size: 17px;
+			color: #FFB53A;
+		}
+	}
+}
+[lang="pt"]{
+	.bunny-page .page-title .title {
+		font-size: 18px;
+	}
+}
+[lang="id"],[lang="ru"],[lang="vi"],[lang="th"],[lang="es"]{
+	.bunny-page .page-title .title {
+		font-size: 20px;
+	}
+}

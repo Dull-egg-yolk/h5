@@ -1,0 +1,432 @@
+html, body {
+    background:#1b191d;
+    height: 100%;
+    width: 100%;
+}
+.page-rank{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background:#480317 url(../../assets//img/worldCup/rank-bg-03.png) top center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    font-size: 0.32rem;
+    position: relative;
+    .swiper{
+        .swiper-slide{
+          height: calc(100vh - 1rem);
+          margin-top: 0.2rem;
+          overflow-y: auto;
+          .no-data {
+            width: 100%;
+            color: #fff;
+            text-align: center;
+            padding-top: 55%;
+            span {
+                display: inline-block;
+            }
+          }
+        }
+        .rank-content {
+            margin-top: -1px;
+            overflow: scroll;
+            .page-loading{
+                text-align: center;
+                height: 0.6rem;
+                line-height: 0.6rem;
+                padding-bottom: 0.2rem;
+                span {
+                display: inline-block;
+                div {
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-right: 5px;
+                }
+                }
+            }
+            .rank-item {
+                display: flex;
+                color: #fff;
+                height: 1.4rem;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 0.5rem;
+                .avatar-wrap{
+                    flex: 4;
+                    display: flex;
+                    align-items: center;
+                    .order {
+                        width: 1rem;
+                        text-align: center;
+                        color: #fc56a8;
+                        font-style: italic;
+                    }
+                    .avatar {
+                        margin-right: 0.2rem;
+                        width: 40px;
+                        height: 40px;
+                        border: 2px solid rgba(255, 255, 255, 0.31);
+                        border-radius: 50%;
+                        overflow: hidden;
+                        background: url(https://h5.livuchat.com/staticProd/worldCup/img/user.png) no-repeat left top;
+                        background-size: 100%;
+                        img {
+                            width: 40px;
+                            height: 40px;
+                            object-fit: cover;
+                        }
+                    }
+                    .info {
+                        p:first-child {
+                            font-size: 0.42rem;
+                        }
+                        p:last-child {
+                            display: flex;
+                            align-items: center;
+                            margin-top: 4px;                        
+                        }
+                    }
+                }
+                .coins {
+                    flex: 4;
+                    text-align: right;
+                    color: #FFCA48;
+                    i {
+                        font-style: normal;
+                    }
+                    span {
+                        display: inline-block;
+                        position: relative;
+                        padding-right: 0.5rem;
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            width: 0.4rem;
+                            right: 0;
+                            top: 0;
+                            display: inline-block;
+                            height: 1rem;
+                            background-position: center;
+                            background: url(../../assets/img/worldCup/icon.png) no-repeat;
+                            background-size: 0.4rem 0.4rem;
+                        }
+                    }
+                }
+                &:nth-child(-n + 3) {
+                    .order {
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: 80%;
+                        height: 0.6rem;
+                        text-indent: -999px;
+                    }
+                }
+                &:first-child {
+                    .order {
+                        background-image: url(../../assets/img/worldCup/rank-one.png);
+                    }
+                }
+                &:nth-child(2) {
+                    .order {
+                        background-image: url(../../assets/img/worldCup/rank-two.png);
+                    }
+                }
+                &:nth-child(3) {
+                    .order {
+                        background-image: url(../../assets/img/worldCup/rank-three.png);
+                    }
+                }
+            }
+        }
+        .history-content {
+            padding: 0.3rem;
+            min-height: 100vh;
+            .item {
+                position: relative;
+                margin-bottom: 0.3rem;
+                min-height: 1.6rem;
+                color: #fff;
+                .gift-bg{
+                    position: absolute;
+                    z-index: 1;
+                    top: 1.2rem;
+                    bottom: 0.4rem;
+                    background: url(../../assets/img/worldCup/history-item-bg01.png) repeat-y;
+                    background-size: 100%;
+                    width: 100%;
+                }
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left:0;
+                    top: 0;
+                    width: 100%;
+                    height: 1.2rem;
+                    background: url(../../assets/img/worldCup/history-item-bg03.png);
+                    background-repeat: no-repeat;
+                    background-position: left top;
+                    background-size: 100%;
+                    z-index: 1;
+                }
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left:0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 0.4rem;
+                    background: url(../../assets/img/worldCup/history-item-bg02.png);
+                    background-repeat: no-repeat;
+                    background-position: left bottom;
+                    background-size: 100%;
+                    z-index: 1;
+                }
+                .item-type {
+                    display: inline-block;
+                    position: absolute;
+                    width: 60px;
+                    height: 60px;
+                    left: 0px;
+                    top: 0px;
+                    z-index: 2;
+                    img {
+                        display: inline-block;
+                        width: 100%;
+                    }
+                }
+                .show-times{
+                    display: inline-block;
+                    position: absolute;
+                    left: 46px;
+                    top: 26px;
+                    z-index: 3;
+                    font-size: 12px;
+                    font-style: italic;
+                    transform: scale(0.8);
+                    font-weight: bold;
+                    color:#FF5AC9;
+                }
+                .date {
+                    height: 0.8rem;
+                    text-align: right;
+                    line-height: 0.8rem;
+                    color: rgba(255, 255, 255, 0.4);
+                }
+                .get-gift{
+                    margin-top: 6px;
+                    margin-bottom: 6px;
+                    display: flex;
+                    color: #fff;
+                    z-index: 3;
+                    position: relative;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-right: 0.3rem;
+                    &.goods {
+                        padding-bottom: 0.3rem;
+                     
+                    }
+                    >div {
+                        &:first-child {
+                            font-size: 0.4rem;
+                            text-indent: 0.3rem;
+                        }
+                    }
+                    .coins {
+                        display: inline-block;
+                        height: 0.8rem;
+                        line-height: 0.8rem;
+                        font-style: italic;
+                        font-size: 0.4rem;
+                        color: #FFCA48;
+                        float: right;
+                        &::after {
+                            content: '';
+                            display: inline-block;
+                            height: 0.8rem;
+                            width: 0.5rem;
+                            float: right;
+                            margin-left: 0.1rem;
+                            background: url(../../assets/img/worldCup/icon.png) no-repeat left 45%;
+                            background-size: 0.4rem 0.4rem;
+                        }
+                    }
+                    .gift-small {
+                        display: flex;
+                        justify-content: space-around;
+                        // padding-bottom: 0.3rem;
+                        li {
+                            display: inline-block;
+                            width: 26px;
+                            height: 26px;
+                            margin-left: 10px;
+                            position: relative;
+                            span {
+                                display: inline-block;
+                                position: absolute;
+                                width: 26px;
+                                right: -4px;
+                                bottom: -6px;
+                                font-size: 12px;
+                                transform: scale(0.8);
+                                color:#fff;
+                                text-align: right;
+                                i {
+                                    font-style: normal;
+                                }
+                            }
+                            &.special {
+                                &::before {
+                                    content: '';
+                                    position: absolute;
+                                    top: -4px;
+                                    left: -4px;
+                                    width: 130%;
+                                    height: 130%;
+                                    z-index: -1;
+                                    background: url(https://h5.livuchat.com/staticProd/worldCup/img/gift/new/maisui.png) no-repeat center;
+                                    background-size: 100%;
+                                }
+                            }
+                            img {
+                                display: none;
+                                display: inline-block;
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .header {
+        height: 0.8rem;
+        line-height: 0.8rem;
+        text-align: center;
+        position: relative;
+        margin-top: 0.3rem;
+        .back {
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0.3rem;
+            width: 0.8rem;
+            height: 0.8rem;
+            height: 100%;
+            background: url(../../assets/img/worldCup/arrow.png) no-repeat;
+            background-position: center;
+            background-size: 60%;
+            transform: rotate(180deg);
+            border: 1px solid #1b191d;
+            border-radius: 50%;
+        }
+        .title{
+            color: #fff;
+            font-size: 0.4rem;
+            display: inline-block;
+            span {
+                display: inline-block;
+                &:first-child {
+                    margin-right: 0.3rem;
+                }
+                &.current {
+                    font-size: 0.5rem;
+                    font-weight: 900;
+                    font-style: italic;
+                }
+            }
+        }
+    }
+
+    &.horizontal-flip {
+        .swiper {
+            .rank-content {
+                transform: scaleX(-1);
+                .rank-item {
+                    .order {
+                        transform: scaleX(-1);
+                    }
+                    .avatar {
+                        transform: scaleX(-1);
+                        img {
+                            border-radius: 50%;
+                        }
+                    }
+                    .coins {
+                        // transform: scaleX(-1);
+                        i {
+                            display: inline-block;
+                            transform: scaleX(-1);
+                        }
+                        span {
+                            transform: scaleX(-1);
+                            padding-right: 1px;
+                            padding-left: 0.5rem;
+                            &::after {
+                                left: 0;
+                                text-align: left;
+                            }
+                        }
+                    }
+                    .info {
+                        p:first-child {
+                            transform: scaleX(-1);
+                        }
+                        .country-box {
+                            img {
+                                transform: scaleX(-1);
+                            }
+                        }
+                    }
+                }
+            }
+            .history-content {
+                transform: scaleX(-1);
+                .item {
+                    .date {
+                        span {
+                            display: inline-block;
+                            transform: scaleX(-1);
+                        }
+                    }
+                    .gift-small {
+                        li {
+                            img {
+                                transform: scaleX(-1);
+                            }
+                            >span {
+                                i {
+                                    display: inline-block;
+                                    transform: scaleX(-1);
+                                }
+                            }
+                        }
+                    }
+                    .show-times {
+                        i {
+                            display: inline-block;
+                            transform: scaleX(-1);
+                        }
+                    }
+                    .get-gift {
+                        div:first-child {
+                            span {
+                                display: inline-block;
+                                transform: scaleX(-1);
+                            }
+                        }
+                        .coins {
+                            span {
+                                display: inline-block;
+                                transform: scaleX(-1);
+                            }
+                        }
+                    }
+                    
+                }
+            }
+        }
+        
+    }
+}

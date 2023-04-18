@@ -1,0 +1,103 @@
+@import "./common.less";
+@import "./video.less";
+
+
+@ruleImg: "@{imgDomian}/rule2-bg.jpg";
+
+.rules-page {
+  position: relative;
+  color: #fff;
+  min-height: 100vh;
+  width: 100%;
+  .bgImg(@mainBgColor, "@{ruleImg}");
+  padding-bottom: 60px;
+  .rule-title {
+      padding-top: 230px;
+      text-align: center;
+      line-height: 40px;
+      font-size: 18px;
+      font-weight: 600;
+  }
+  .sub-title{
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    background: linear-gradient(90deg, rgba(109,212,0,0) 0%, rgba(27,255,0,0.53) 47%, rgba(247,181,0,0) 100%);
+    border: 1px solid;
+    border-image: linear-gradient(270deg, rgba(255, 238, 0, 0), rgba(255, 221, 0, 1), rgba(255, 217, 0, 0)) 1 1;
+    backdrop-filter: blur(8px);
+  }
+  .rule-box {
+      padding:  10px 17px 22px;
+      font-size: 14px;
+      line-height: 22px;
+      // .span-color {
+      //   color: red;
+      // }
+      dl:nth-child(5) {
+        display: none;
+      }
+      dl:last-child {
+        margin-top: 15px;
+      }
+      .video-list {
+          margin: 0;
+          .play-video {
+              display: inline-block;
+              top: 50%;
+              width: 41px;
+              height: 41px;
+              transform: translate(-50%, -50%);
+          }
+      }
+  }
+
+  dl {
+      margin-bottom: 15px;
+      // background: #fff;
+      color: #fff;
+      padding: 0.3rem;
+      border-radius: 0.3rem;
+      .red {
+        color: #FFDE00;
+      }
+      &:first-child {
+        dt {
+
+        }
+        text-align: center;
+      }
+      dt {
+          font-size: 18px;
+          font-weight: bold;
+          margin-bottom: 5px;
+      }
+  }
+
+  &.horizontal-flip {
+     dl:nth-child(n+2) {
+       text-align: right;
+     }
+  }
+}
+.bottom-btn {
+  position: fixed;
+  bottom: 1rem;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  text-align: center;
+  span {
+      display: inline-block;
+      width: 251px;
+      height: 50px;
+      line-height: 50px;
+      background: url("@{imgDomian}/open-gift-btn-bg.png");
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      font-size: 17px;
+      color: #fff;
+  }
+}

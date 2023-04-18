@@ -1,0 +1,577 @@
+@import "./common.less";
+
+.page-rank{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    .bgImg(@mainBgColor, "@{imgDomian}/@{rankBgImg}");
+    font-size: 0.32rem;
+    position: relative;
+    .swiper{
+        .swiper-slide{
+          height: calc(100vh - 1rem);
+          margin-top: 0.2rem;
+          overflow-y: auto;
+          .no-data {
+            width: 100%;
+            color: #fff;
+            text-align: center;
+            padding-top: 55%;
+            font-size: 14px;
+            span {
+                display: inline-block;
+            }
+          }
+        }
+        .rank-content {
+            margin-top: -1px;
+            overflow: scroll;
+            .page-loading{
+                text-align: center;
+                height: 0.6rem;
+                line-height: 0.6rem;
+                padding-bottom: 0.2rem;
+                span {
+                display: inline-block;
+                div {
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-right: 5px;
+                }
+                }
+            }
+            .rank-item {
+                display: flex;
+                color: #fff;
+                height: 1.4rem;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 0.5rem;
+                .avatar-wrap{
+                    flex: 4;
+                    display: flex;
+                    align-items: center;
+                    .order {
+                        width: 1rem;
+                        text-align: center;
+                        color: #fff;
+                        font-weight: bold;
+                        font-style: italic;
+                    }
+                    .avatar {
+                        margin-right: 0.2rem;
+                        width: 40px;
+                        height: 40px;
+                        border: 2px solid rgba(255, 255, 255, 0.31);
+                        border-radius: 50%;
+                        overflow: hidden;
+                        background: url(https://h5.livuchat.com/staticProd/worldCup/img/user.png) no-repeat left top;
+                        background-size: 100%;
+                        img {
+                            width: 40px;
+                            height: 40px;
+                            object-fit: cover;
+                        }
+                    }
+                    .info {
+                        p:first-child {
+                            font-size: 0.42rem;
+                        }
+                        p:last-child {
+                            display: flex;
+                            align-items: center;
+                            margin-top: 4px;                        
+                        }
+                    }
+                }
+                .coins {
+                    flex: 4;
+                    text-align: right;
+                    color: #FFDA00;
+                    i {
+                        display: inline-block;
+                        font-style: normal;
+                        padding-right: 2px;
+                        font-size: 12px;
+                    }
+                    span {
+                        display: inline-block;
+                        position: relative;
+                        padding-right: 0.5rem;
+                        font-size: 16px;
+                        font-weight: bold;
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            width: 0.4rem;
+                            right: 0;
+                            top: 0;
+                            display: inline-block;
+                            height: 1rem;
+                            background-position: center;
+                            background: url("@{imgDomian}/coin.png") no-repeat;
+                            background-size: 0.4rem 0.4rem;
+                        }
+                    }
+                }
+                &:nth-child(-n + 3) {
+                    .order {
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: 80%;
+                        height: 0.6rem;
+                        text-indent: -999px;
+                    }
+                }
+                &:first-child {
+                    .order {
+                        background-image: url("@{imgDomian}/rank-one.png");
+                    }
+                }
+                &:nth-child(2) {
+                    .order {
+                        background-image: url("@{imgDomian}/rank-two.png");
+                    }
+                }
+                &:nth-child(3) {
+                    .order {
+                        background-image: url("@{imgDomian}/rank-three.png");
+                    }
+                }
+            }
+        }
+        .history-content {
+            padding:0.7rem 0.2rem 80px 0.2rem;
+            min-height: 100vh;
+            .item {
+                position: relative;
+                min-height: 70px;
+                color: #fff;
+                margin: 0 8px 16px;
+                .gift-bg{
+                    position: absolute;
+                    z-index: 1;
+                    top: 1.2rem;
+                    bottom: 0.4rem;
+                    background: url("@{imgDomian}/history-item-1bg01.png") repeat-y;
+                    background-size: 100%;
+                    width: 100%;
+                }
+                &.box{
+                    &::before,&::after,.gift-bg {
+                        display: none;
+                    }
+                    background:url(../../../assets/img/2022_christmas/img/history-item0a.png) no-repeat;
+                    background-size: 100%;
+                    height: 84px;
+                    background-position: left top;
+                    .get-gift {
+                        margin-top: 12px;
+                    }
+                }
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left:0;
+                    top: 0;
+                    width: 100%;
+                    height: 1.2rem;
+                    background: url("@{imgDomian}/history-item-1bg03.png");
+                    background-repeat: no-repeat;
+                    background-position: left top;
+                    background-size: 100%;
+                    z-index: 1;
+                }
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left:0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 0.4rem;
+                    background: url("@{imgDomian}/history-item-1bg02.png");
+                    background-repeat: no-repeat;
+                    background-position: left bottom;
+                    background-size: 100%;
+                    z-index: 1;
+                }
+                .item-type {
+                    display: inline-block;
+                    position: absolute;
+                    width: 40px;
+                    height: 48px;
+                    left: 10px;
+                    top: -20px;
+                    z-index: 2;
+                    img {
+                        display: inline-block;
+                        width: 100%;
+                        transform: rotate(-20deg);
+                        &.no-rotate {
+                            position: relative;
+                            top: 10px;
+                            transform: rotate(0deg);
+                        }
+                    }
+                }
+                .show-times{
+                    display: inline-block;
+                    position: absolute;
+                    left: 40px;
+                    top: -5px;
+                    z-index: 3;
+                    font-size: 14px;
+                    font-style: italic;
+                    font-weight: bold;
+                    color:#FFDA00;
+                }
+                .date {
+                    height: 0.8rem;
+                    text-align: right;
+                    line-height: 0.8rem;
+                    color: #fff;
+                    padding-right: 8px;
+                }
+                .get-gift{
+                    margin-top: 6px;
+                    margin-bottom: 6px;
+                    display: flex;
+                    color: #fff;
+                    z-index: 3;
+                    position: relative;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-right: 0.3rem;
+                    &.goods {
+                        padding-bottom: 0.3rem;
+                    }
+                    >div {
+                        &:first-child {
+                            font-size: 12px;
+                            padding-left: 8px;
+                        }
+                    }
+                    .coins {
+                        display: inline-block;
+                        height: 0.8rem;
+                        line-height: 0.8rem;
+                        font-style: italic;
+                        font-size: 0.4rem;
+                        color: #FFCA48;
+                        float: right;
+                        &::after {
+                            content: '';
+                            display: inline-block;
+                            height: 0.8rem;
+                            width: 0.5rem;
+                            float: right;
+                            margin-left: 0.1rem;
+                            background:  url("@{imgDomian}/coin.png") no-repeat left 45%;
+                            background-size: 0.4rem 0.4rem;
+                        }
+                    }
+                    .gift-small {
+                        width: 200px;
+                        width: 172px;
+                        display: flex;
+                        flex-flow: row-reverse wrap;
+                        li {
+                            display: inline-block;
+                            width: 40px;
+                            height: 40px;
+                            margin-left: 2px;
+                            margin-bottom: 4px;
+                            position: relative;
+                            span {
+                                display: inline-block;
+                                position: absolute;
+                                width: 26px;
+                                right: 0px;
+                                bottom: 0px;
+                                font-size: 12px;
+                                color:#fff;
+                                font-weight: bold;
+                                text-align: right;
+                                z-index: 3;
+                                transform: scale(0.8);
+                                i {
+                                    font-style: normal;
+                                }
+                                &.gift-coins{
+                                    background: linear-gradient(90deg, rgba(119,0,0,0) 0%, #670000 51%, rgba(113,0,0,0) 100%);;
+                                    width: 40px;
+                                    text-align: center;
+                                    &::after {
+                                        content: '';
+                                        display: inline-block;
+                                        position: relative;
+                                        top: 2px;
+                                        left: 1px;
+                                        width: 12px;
+                                        height: 12px;
+                                        background: url(https://h5.livuchat.com/staticProd/2022_christmas/img/coin.png) no-repeat left bottom;
+                                        background-size: 100%;
+                                    }
+                                }
+                            }
+                            &.gift {
+                                background: url(../../../assets/img/2022_christmas/img/gift/gift-bg.png);
+                                background-size: 100%;
+                                background-position: center;
+                                text-align: center;
+                                img {
+                                    display: inline-block;
+                                    width: 30px;
+                                    height: 30px;
+                                    margin-top: 2px;
+                                }
+                            }
+                            &.special {
+                                // &::before {
+                                //     content: '';
+                                //     position: absolute;
+                                //     top: -6px;
+                                //     left:0px;
+                                //     width: 100%;
+                                //     height: 14px;
+                                //     background:url("@{imgDomian}/gift/yun.png") no-repeat top left;
+                                //     background-size: auto 100%;
+                                // }
+                            }
+                            img {
+                                display: none;
+                                display: inline-block;
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .header {
+        height: 45px;
+        height: 45px;
+        text-align: center;
+        position: relative;
+        margin-top: 66px;
+        .title{
+            color: #fff;
+            font-size: 14px;
+            display: inline-block;
+            span {
+                display: inline-block;
+                &:first-child {
+                    margin-right: 0.3rem;
+                }
+                &.current {
+                    font-size: 0.5rem;
+                    font-weight: 900;
+                    font-style: italic;
+                }
+            }
+        }
+    }
+
+    &.horizontal-flip {
+        .swiper {
+            .rank-content {
+                transform: scaleX(-1);
+                .rank-item {
+                    .order {
+                        transform: scaleX(-1);
+                    }
+                    .avatar {
+                        transform: scaleX(-1);
+                        img {
+                            border-radius: 50%;
+                        }
+                    }
+                    .coins {
+                        // transform: scaleX(-1);
+                        i {
+                            display: inline-block;
+                            transform: scaleX(-1);
+                        }
+                        span {
+                            transform: scaleX(-1);
+                            padding-right: 1px;
+                            padding-left: 0.5rem;
+                            &::after {
+                                left: 0;
+                                text-align: left;
+                            }
+                        }
+                    }
+                    .info {
+                        p:first-child {
+                            transform: scaleX(-1);
+                        }
+                        .country-box {
+                            img {
+                                transform: scaleX(-1);
+                            }
+                        }
+                    }
+                }
+            }
+            .history-content {
+                transform: scaleX(-1);
+                .item {
+                    .date {
+                        span {
+                            display: inline-block;
+                            transform: scaleX(-1);
+                        }
+                    }
+                    >.gift-small {
+                        li {
+                            img {
+                                transform: scaleX(-1);
+                            }
+                            >span {
+                                i {
+                                    display: inline-block;
+                                    transform: scaleX(-1);
+                                }
+                            }
+                        }
+                    }
+                    .show-times {
+                        i {
+                            display: inline-block;
+                            transform: scaleX(-1);
+                        }
+                    }
+                    .get-gift {
+                        div:first-child {
+                            span {
+                                display: inline-block;
+                                transform: scaleX(-1);
+                            }
+                        }
+                        .coins {
+                            span {
+                                display: inline-block;
+                                transform: scaleX(-1);
+                            }
+                        }
+                    }
+                    
+                }
+            }
+        }
+        
+    }
+}
+
+.v-modal {
+    opacity: 0.86;
+}
+.mint-popup {
+    background:none;
+}
+.gift-wrap {
+    width: 320px;
+    height: 400px;
+    .header {
+        text-align: center;
+        position: relative;
+        font-size: 0.4rem;
+        height: 50px;
+        span {
+            display: inline-block;
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            top: 50px;
+            right: 30px;
+            img {
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    .info {
+        position: relative;
+        z-index: 2002;
+        color: #fff;
+        text-align: center;
+        margin-top: 30px;
+        height: 100px;
+        >.item-wrap {
+            height: 60px;
+            text-align: center;
+            margin-bottom: 10px;
+            span {
+                display: inline-block;
+                width: 70px;
+                height: 70px;
+                background: url(../../../assets/img/2022_christmas/img/gift/gift-bg.png);
+                background-size: 100%;
+                background-position: center;
+                position: relative;
+                >img {
+                    display: inline-block;
+                    width: 60px;
+                    height: 60px;
+                    margin-top: 2px;
+                }
+                >i {
+                    display: inline-block;
+                    position: absolute;
+                    bottom: 0px;
+                    left: 0px;
+                    height: 20px;
+                    line-height: 20px;
+                    width: 100%;
+                    color: #fff;
+                    text-align: center ;
+                    // padding-right: 16px;
+                    box-sizing: border-box;
+                    background: linear-gradient(90deg, rgba(119,0,0,0) 0%, #670000 51%, rgba(113,0,0,0) 100%);
+                    &::after {
+                        content: '';
+                        height: 20px;
+                        width: 20px;
+                        position: absolute;
+                        top: 0px;
+                        right: 4px;
+                        background: url("@{coinsImg}") no-repeat right 45%;
+                        background-size: 80%;
+                    }
+                }
+            }
+        }
+        >p {
+            margin-top: 30px;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+        .btn-wrap{
+            text-align: center;
+            animation: gitInfoAnim 0.5s 0s both;
+            .btn {
+                display: inline-block;
+                width: 255px;
+                height: 50px;
+                line-height: 58px;
+                color: #192212;
+                font-weight: bold;
+                font-size: 14px;
+                text-align: center;
+                background: url("@{imgDomian}/pick-up.png") no-repeat left -10px;
+                background-size: 100% auto;
+            }
+        }
+    }
+}
+
+[lang="fr"],[lang="pt"] {
+    .page-rank .header .title  {
+        font-size: 12px;
+        transform: scale(0.8);
+    }
+}
